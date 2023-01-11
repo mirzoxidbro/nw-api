@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Spatie\Permission\Models\Permission;
 
 class PermissionCreate extends Command
 {
@@ -27,6 +28,12 @@ class PermissionCreate extends Command
      */
     public function handle()
     {
-        /** User permission */
+        /** Role permission */
+        Permission::create(['name' => 'get roles']);
+        Permission::create(['name' => 'store new role']);
+        Permission::create(['name' => 'role get permission']);
+        Permission::create(['name' => 'role update permission']);
+        Permission::create(['name' => 'delete role']);
+        Permission::create(['name' => 'get permissions']);
     }
 }
