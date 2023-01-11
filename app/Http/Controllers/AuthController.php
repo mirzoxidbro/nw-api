@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Response;
+use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
 {
@@ -52,5 +53,15 @@ class AuthController extends Controller
         return response()->json([
             "Log out"
         ]);
+    }
+
+    public function assignRole(int $userId, int $roleId)
+    {
+        $user = User::findOrFail($userId);
+        $role = Role::findOrFail($roleId);
+
+        $user->assignRole($role);
+
+        return $user;
     }
 }

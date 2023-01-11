@@ -23,6 +23,7 @@ Route::post('login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('assignRole/{userId}/{roleId}', [AuthController::class, 'assignRole']);
 
     Route::prefix('roles')->group(function(){
         Route::get('getRoles', [RoleController::class, 'getRoles']);
