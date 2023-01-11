@@ -18,7 +18,7 @@ class RoleController extends Controller
 
     public function store(Request $request): Model
     {
-        $role = Role::create([$request->name]);
+        $role = Role::create(['name' => $request->name, 'guard_name' => 'web']);
         return $role;
     }
 
@@ -30,7 +30,6 @@ class RoleController extends Controller
         foreach($permissions as $permission)
         {
             $role->givePermissionTo($permission);
-            $permission->assignRole($role);
         }
 
         return $role;
@@ -46,7 +45,6 @@ class RoleController extends Controller
         foreach($permissions as $permission)
         {
             $role->givePermissionTo($permission);
-            $permission->assignRole($role);
         }
 
         return $role;
