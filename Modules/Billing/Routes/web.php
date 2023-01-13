@@ -11,6 +11,3 @@
 |
 */
 
-Route::prefix('billing')->group(function() {
-    Route::get('/', 'BillingController@index');
-});
