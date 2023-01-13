@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\RoleAndPermission;
+namespace Modules\Core\Http\Controllers\RoleAndPermission;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Model;

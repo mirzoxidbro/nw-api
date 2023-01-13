@@ -1,10 +1,6 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\RoleAndPermission\PermissionController;
-use App\Http\Controllers\RoleAndPermission\RoleController;
 use Illuminate\Http\Request;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-
-
+Route::middleware('auth:api')->get('/billing', function (Request $request) {
+    return $request->user();
+});
