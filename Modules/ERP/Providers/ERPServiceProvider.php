@@ -4,6 +4,8 @@ namespace Modules\ERP\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\ERP\Repository\OrderRepository;
+use Modules\Infrastructure\Interfaces\OrderRepositoryInterface;
 
 class ERPServiceProvider extends ServiceProvider
 {
@@ -110,5 +112,10 @@ class ERPServiceProvider extends ServiceProvider
             }
         }
         return $paths;
+    }
+
+    public function registerInterfaces()
+    {
+        $this->app->bind(OrderRepositoryInterface::class, OrderRepository::class);
     }
 }

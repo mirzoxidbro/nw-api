@@ -11,6 +11,3 @@
 |
 */
 
-Route::prefix('erp')->group(function() {
-    Route::get('/', 'ERPController@index');
-});

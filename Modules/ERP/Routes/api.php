@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Modules\ERP\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/erp', function (Request $request) {
-    return $request->user();
+Route::prefix('order')->group(function(){
+    Route::get('/', [OrderController::class, 'index']);
+    Route::post('/', [OrderController::class, 'store']);
+    Route::get('/{order}', [OrderController::class, 'show']);
+    Route::put('/{order}', [OrderController::class, 'update']);
+    Route::delete('/{order}', [OrderController::class, 'delete']);
 });
