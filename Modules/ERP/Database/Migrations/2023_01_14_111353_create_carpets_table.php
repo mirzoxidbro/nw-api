@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('carpets', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('location');
-            $table->integer('amount');
+            $table->unsignedBigInteger('order_id');
+            $table->integer('longtitute');
+            $table->integer('latitue');
+            $table->enum('type', ['thin', 'ordinary', 'special']);
+            $table->enum('status', ['was_brought', 'washed', 'prepared'])->default('was_brought');
+            $table->integer('surface');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('carpets');
     }
 };

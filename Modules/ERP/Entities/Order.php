@@ -17,6 +17,11 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function carpets()
+    {
+        return $this->hasMany(Carpet::class);
+    }
+
     protected $appends = ['username'];
 
     public function getUsernameAttribute()
