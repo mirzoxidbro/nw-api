@@ -7,5 +7,5 @@ class StoreOrderUseCase extends BaseOrderUseCase
     public function execute(array $data)
     {
         return $this->repository->save($data);
-    }    
+    }
 }

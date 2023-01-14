@@ -3,7 +3,7 @@
 namespace Modules\ERP\Repository;
 
 use Modules\ERP\Entities\Order;
-use Modules\Infrastructure\Interfaces\OrderRepositoryInterface;
+use Modules\ERP\Infrastructure\Interfaces\OrderRepositoryInterface;
 
 class OrderRepository implements OrderRepositoryInterface
 {

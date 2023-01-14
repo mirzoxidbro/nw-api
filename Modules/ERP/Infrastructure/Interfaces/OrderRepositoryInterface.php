@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Infrastructure\Interfaces;
+namespace Modules\ERP\Infrastructure\Interfaces;
 
 interface OrderRepositoryInterface
 {

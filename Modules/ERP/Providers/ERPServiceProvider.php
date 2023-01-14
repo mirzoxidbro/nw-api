@@ -4,8 +4,8 @@ namespace Modules\ERP\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\ERP\Infrastructure\Interfaces\OrderRepositoryInterface;
 use Modules\ERP\Repository\OrderRepository;
-use Modules\Infrastructure\Interfaces\OrderRepositoryInterface;
 
 class ERPServiceProvider extends ServiceProvider
 {

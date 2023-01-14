@@ -2,9 +2,8 @@
 
 namespace Modules\ERP\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\ERP\Entities\Order;
 use Modules\ERP\Http\Requests\Order\OrderStoreRequest;
 use Modules\ERP\Http\Requests\Order\OrderUpdateRequest;
 use Modules\ERP\Http\UseCases\Order\DeleteOrderUseCase;
@@ -22,7 +21,7 @@ class OrderController extends Controller
         return response()->json(['data' => $data]);
     }
 
-    public function store(StoreOrderUseCase $useCase, OrderStoreRequest $request)
+    public function store(OrderStoreRequest $request, StoreOrderUseCase $useCase)
     {
         $data = $useCase->execute($request->validated());
 
@@ -32,11 +31,15 @@ class OrderController extends Controller
     public function show(ShowOrderUseCase $useCase, int $id)
     {
         $data = $useCase->execute($id);
+
+        return response()->json(['data' => $data]);
     }
 
     public function update(UpdateOrderUseCase $useCase, int $id, OrderUpdateRequest $request)
     {
         $data = $useCase->execute($request->validated(), $id);
+
+        return response()->json(['data' => $data]);
     }
 
     public function destroy(DeleteOrderUseCase $useCase, int $id)
