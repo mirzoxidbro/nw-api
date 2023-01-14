@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('order_id');
             $table->integer('longtitute');
-            $table->integer('latitue');
+            $table->integer('latitute');
             $table->enum('type', ['thin', 'ordinary', 'special']);
             $table->enum('status', ['was_brought', 'washed', 'prepared'])->default('was_brought');
             $table->integer('surface');
+            $table->string('info')->nullable();
             $table->timestamps();
         });
     }

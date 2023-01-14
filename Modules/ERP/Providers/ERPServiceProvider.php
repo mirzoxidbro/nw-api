@@ -117,5 +117,6 @@ class ERPServiceProvider extends ServiceProvider
     public function registerInterfaces()
     {
         $this->app->bind(OrderRepositoryInterface::class, OrderRepository::class);
+        $this->app->bind(OrderRepositoryInterface::class, OrderRepository::class);
     }
 }

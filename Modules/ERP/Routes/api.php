@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Modules\ERP\Http\Controllers\CarpetController;
 use Modules\ERP\Http\Controllers\OrderController;
 
 /*
@@ -21,4 +22,12 @@ Route::prefix('order')->group(function(){
     Route::get('/{order}', [OrderController::class, 'show']);
     Route::put('/{order}', [OrderController::class, 'update']);
     Route::delete('/{order}', [OrderController::class, 'delete']);
+});
+
+Route::prefix('carpet')->group(function(){
+    Route::get('/', [CarpetController::class, 'index']);
+    Route::post('/', [CarpetController::class, 'store']);
+    Route::get('/{carpet}', [CarpetController::class, 'show']);
+    Route::put('/{carpet}', [CarpetController::class, 'update']);
+    Route::delete('/{carpet}', [CarpetController::class, 'delete']);
 });

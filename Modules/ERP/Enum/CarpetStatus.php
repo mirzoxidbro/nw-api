@@ -2,7 +2,7 @@
 
 namespace Modules\ERP\Enum;
 
-enum CarpetType: string
+enum CarpetStatus: string
 {
     case WAS_BROUGHT = 'was_brought';
     case WASHED = 'washed';
