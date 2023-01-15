@@ -6,12 +6,14 @@ use Illuminate\Support\Facades\DB;
 use Modules\ERP\Entities\Attendace;
 use Modules\ERP\Entities\Workman;
 use Modules\ERP\Infrastructure\Interfaces\AttendanceRepositoryInterface;
+use Modules\ERP\Transformers\Attendance\AttendanceResource;
 
 class AttendanceRepository implements AttendanceRepositoryInterface
 {
     public function getAttendance()
     {
-        return Attendace::query()->paginate(10);
+        $attendance = Attendace::query()->with('workers')->paginate(10);
+        return AttendanceResource::collection($attendance);
     }
 
     public function save(array $data)
