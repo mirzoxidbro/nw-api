@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\ERP\Http\Controllers\AttendanceController;
 use Modules\ERP\Http\Controllers\CarpetController;
 use Modules\ERP\Http\Controllers\OrderController;
 use Modules\ERP\Http\Controllers\WorkmanController;
@@ -38,4 +39,12 @@ Route::prefix('worker')->group(function(){
     Route::get('/{worker}', [WorkmanController::class, 'show']);
     Route::put('/{worker}', [WorkmanController::class, 'update']);
     Route::delete('/{worker}', [WorkmanController::class, 'delete']);
+});
+
+Route::prefix('attendance')->group(function(){
+    Route::get('/', [AttendanceController::class, 'index']);
+    Route::post('/', [AttendanceController::class, 'store']);
+    Route::get('/{attendance}', [AttendanceController::class, 'show']);
+    Route::put('/{attendance}', [AttendanceController::class, 'update']);
+    Route::delete('/{attendance}', [AttendanceController::class, 'delete']);
 });

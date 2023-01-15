@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('attendaces', function (Blueprint $table) {
             $table->id();
-
+            $table->date('date');
             $table->timestamps();
         });
     }
