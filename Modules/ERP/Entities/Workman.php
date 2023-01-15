@@ -9,10 +9,6 @@ class Workman extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $fillable = ['name', 'phone', 'is_archived'];
     
-    protected static function newFactory()
-    {
-        return \Modules\ERP\Database\factories\WorkmanFactory::new();
-    }
 }

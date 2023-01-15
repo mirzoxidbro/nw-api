@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Modules\ERP\Http\Controllers\CarpetController;
 use Modules\ERP\Http\Controllers\OrderController;
+use Modules\ERP\Http\Controllers\WorkmanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +30,12 @@ Route::prefix('carpet')->group(function(){
     Route::get('/{carpet}', [CarpetController::class, 'show']);
     Route::put('/{carpet}', [CarpetController::class, 'update']);
     Route::delete('/{carpet}', [CarpetController::class, 'delete']);
+});
+
+Route::prefix('worker')->group(function(){
+    Route::get('/', [WorkmanController::class, 'index']);
+    Route::post('/', [WorkmanController::class, 'store']);
+    Route::get('/{worker}', [WorkmanController::class, 'show']);
+    Route::put('/{worker}', [WorkmanController::class, 'update']);
+    Route::delete('/{worker}', [WorkmanController::class, 'delete']);
 });

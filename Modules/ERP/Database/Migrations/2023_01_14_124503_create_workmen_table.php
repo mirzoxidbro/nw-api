@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('workmen', function (Blueprint $table) {
             $table->id();
-
+            $table->string('name');
+            $table->string('phone');
+            $table->boolean('is_archived')->default(0);
             $table->timestamps();
         });
     }
