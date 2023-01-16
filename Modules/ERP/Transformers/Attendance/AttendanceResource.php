@@ -18,8 +18,7 @@ class AttendanceResource extends JsonResource
         return [
             'id' => $this->id,
             'date' => $this->date,
-            // dd($this->workers),
-            // 'workers' => new WorkerResource($this->workers)
+            'workers' => WorkerResource::collection($this->workers)
         ];
     }
 }
