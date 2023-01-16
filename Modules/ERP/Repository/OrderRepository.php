@@ -4,27 +4,30 @@ namespace Modules\ERP\Repository;
 
 use Modules\ERP\Entities\Order;
 use Modules\ERP\Infrastructure\Interfaces\OrderRepositoryInterface;
+use Modules\ERP\Transformers\Order\OrderResource;
 
 class OrderRepository implements OrderRepositoryInterface
 {
     public function getOrders()
     {
-        return Order::query()->paginate(10);
+        return OrderResource::collection(Order::query()->with('user')->paginate(10));
     }
 
     public function save(array $data)
     {
-        return Order::create($data);
+        return OrderResource::collection(Order::create($data));
     }
 
     public function show(int $id)
     {
-        return Order::findOrFail($id)->get();
+        return OrderResource::collection(Order::findOrFail($id)->get());
     }
 
-    public function update(array $data, int $id): bool|int
+    public function update(array $data, int $id)
     {
-        return Order::findOrFail($id)->update($data);
+        $order = Order::findOrFail($id)->get();
+        $order->update($data);
+        return OrderResource::collection($order);
     }
 
     public function delete(int $id)

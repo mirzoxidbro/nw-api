@@ -4,29 +4,30 @@ namespace Modules\ERP\Repository;
 
 use Modules\ERP\Entities\Workman;
 use Modules\ERP\Infrastructure\Interfaces\WorkmanRepositoryInterface;
+use Modules\ERP\Transformers\Workman\WorkmanResource;
 
 class WorkmanRepository implements WorkmanRepositoryInterface
 {
     public function getWorkmans()
     {
-        return Workman::query()->select(['id', 'name', 'phone', 'is_archived'])->get();
+        return WorkmanResource::collection(Workman::query()->get());
     }
 
     public function save(array $data)
     {
-        return Workman::create($data);
+        return WorkmanResource::collection(Workman::create($data));
     }
 
     public function show(int $id)
     {
-        return Workman::query()->findOrFail($id)->get();
+        return WorkmanResource::collection(Workman::query()->findOrFail($id)->get());
     }
 
     public function update(array $data, int $id)
     {
         $workman = Workman::findOrFail($id);
         $workman->update($data);
-        return $workman;
+        return WorkmanResource::collection($workman);
     }
 
     public function delete(int $id)

@@ -21,12 +21,12 @@ class AttendanceRepository implements AttendanceRepositoryInterface
         $workers = Workman::query()->whereIn('id', $data['workers'])->get();
         $attendance = Attendace::create($data);
         $attendance->workers()->attach($workers);
-        return $attendance;
+        return AttendanceResource::collection($attendance);
     }
 
     public function show(int $id)
     {
-        return Attendace::query()->findOrFail($id)->get();
+        return AttendanceResource::collection(Attendace::query()->findOrFail($id)->get());
     }
 
     public function update(array $data, int $id)
@@ -36,7 +36,7 @@ class AttendanceRepository implements AttendanceRepositoryInterface
         $attendance = Attendace::find($id);
         $attendance->update($data);
         $attendance->workers()->attach($workers);
-        return $attendance;
+        return AttendanceResource::collection($attendance);
     }
 
     public function delete(int $id)
