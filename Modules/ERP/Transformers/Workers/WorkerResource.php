@@ -17,7 +17,8 @@ class WorkerResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'phone' => $this->phone
+            'phone' => $this->phone,
+            'updated_at' => $this->updated_at
         ];
     }
 }
