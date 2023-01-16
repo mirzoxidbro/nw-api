@@ -15,19 +15,19 @@ class CarpetRepository implements CarpetRepositoryInterface
 
     public function save(array $data)
     {
-        return CarpetResource::collection(Carpet::create($data));
+        return new CarpetResource(Carpet::create($data));
     }
 
     public function show(int $id)
     {
-        return CarpetResource::collection(Carpet::findOrFail($id));
+        return new CarpetResource(Carpet::findOrFail($id));
     }
 
     public function update(array $data, int $id)
     {
         $carpet = Carpet::findOrFail($id);
         $carpet->update($data);
-        return CarpetResource::collection($carpet);
+        return new CarpetResource($carpet);
     }
 
     public function delete(int $id)

@@ -19,7 +19,7 @@ class WorkmanResource extends JsonResource
             'name' => $this->name,
             'phone' => $this->phone,
             'is_archived' => $this->is_archived,
-            'updated_at' => $this->updated_at
+            'updated_at' => $this->updated_at,
         ];
     }
 }

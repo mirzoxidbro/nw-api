@@ -15,19 +15,19 @@ class OrderRepository implements OrderRepositoryInterface
 
     public function save(array $data)
     {
-        return OrderResource::collection(Order::create($data));
+        return new OrderResource(Order::create($data));
     }
 
     public function show(int $id)
     {
-        return OrderResource::collection(Order::findOrFail($id)->get());
+        return new OrderResource(Order::findOrFail($id));
     }
 
     public function update(array $data, int $id)
     {
         $order = Order::findOrFail($id)->get();
         $order->update($data);
-        return OrderResource::collection($order);
+        return new OrderResource($order);
     }
 
     public function delete(int $id)

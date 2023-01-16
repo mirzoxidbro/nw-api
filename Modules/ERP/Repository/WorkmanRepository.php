@@ -10,24 +10,24 @@ class WorkmanRepository implements WorkmanRepositoryInterface
 {
     public function getWorkmans()
     {
-        return WorkmanResource::collection(Workman::query()->get());
+        return WorkmanResource::collection(Workman::query()->paginate(2));
     }
 
     public function save(array $data)
     {
-        return WorkmanResource::collection(Workman::create($data));
+        return new WorkmanResource(Workman::create($data));
     }
 
     public function show(int $id)
     {
-        return WorkmanResource::collection(Workman::query()->findOrFail($id)->get());
+       return new WorkmanResource(Workman::find($id));
     }
 
     public function update(array $data, int $id)
     {
         $workman = Workman::findOrFail($id);
         $workman->update($data);
-        return WorkmanResource::collection($workman);
+        return new WorkmanResource($workman);
     }
 
     public function delete(int $id)
