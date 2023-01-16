@@ -4,6 +4,7 @@ namespace Modules\ERP\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Modules\ERP\Infrastructure\Interfaces\AttendanceRepositoryInterface;
 use Modules\ERP\Infrastructure\Interfaces\OrderRepositoryInterface;
 use Modules\ERP\Repository\AttendanceRepository;
@@ -32,6 +33,7 @@ class ERPServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+        JsonResource::withoutWrapping();
     }
 
     /**

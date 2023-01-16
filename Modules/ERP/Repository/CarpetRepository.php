@@ -10,7 +10,7 @@ class CarpetRepository implements CarpetRepositoryInterface
 {
     public function getCarpets()
     {
-        return CarpetResource::collection(Carpet::query()->paginate(10));
+        return CarpetResource::collection(Carpet::query()->paginate(10))->resource;
     }
 
     public function save(array $data)

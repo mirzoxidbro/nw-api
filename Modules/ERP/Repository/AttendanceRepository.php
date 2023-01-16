@@ -13,7 +13,7 @@ class AttendanceRepository implements AttendanceRepositoryInterface
     public function getAttendance()
     {
         $attendance = Attendace::query()->with('workers')->paginate(10);
-        return AttendanceResource::collection($attendance);
+        return AttendanceResource::collection($attendance)->resource;
     }
 
     public function save(array $data)
