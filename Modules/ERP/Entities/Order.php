@@ -24,12 +24,6 @@ class Order extends Model
         return $this->hasMany(Carpet::class);
     }
 
-    protected $appends = ['username'];
-
-    public function getUsernameAttribute()
-    {
-        return User::query()->select('name')->find($this->user_id);
-    }
 
     protected function updatedAt(): Attribute
     {
