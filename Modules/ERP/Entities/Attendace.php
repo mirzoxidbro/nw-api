@@ -12,6 +12,8 @@ class Attendace extends Model
 {
     use HasFactory;
 
+    protected $with = ['workers'];
+
     protected $fillable = ['date'];
     
     public function workers(): BelongsToMany
