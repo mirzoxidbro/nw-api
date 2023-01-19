@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Modules\ERP\Http\Controllers\AttendanceController;
 use Modules\ERP\Http\Controllers\CarpetController;
 use Modules\ERP\Http\Controllers\OrderController;
+use Modules\ERP\Http\Controllers\PaymentPurposeController;
+use Modules\ERP\Http\Controllers\TransactionController;
 use Modules\ERP\Http\Controllers\WorkmanController;
 
 /*
@@ -47,4 +49,20 @@ Route::prefix('attendance')->group(function(){
     Route::get('/{attendance}', [AttendanceController::class, 'show']);
     Route::put('/{attendance}', [AttendanceController::class, 'update']);
     Route::delete('/{attendance}', [AttendanceController::class, 'delete']);
+});
+
+Route::prefix('payment_purpose')->group(function(){
+    // Route::get('/', [AttendanceController::class, 'index']);
+    Route::post('/', [PaymentPurposeController::class, 'store']);
+    // Route::get('/{attendance}', [AttendanceController::class, 'show']);
+    // Route::put('/{attendance}', [AttendanceController::class, 'update']);
+    // Route::delete('/{attendance}', [AttendanceController::class, 'delete']);
+});
+
+Route::prefix('transactions')->group(function(){
+    // Route::get('/', [AttendanceController::class, 'index']);
+    Route::post('/', [TransactionController::class, 'store']);
+    // Route::get('/{attendance}', [AttendanceController::class, 'show']);
+    // Route::put('/{attendance}', [AttendanceController::class, 'update']);
+    // Route::delete('/{attendance}', [AttendanceController::class, 'delete']);
 });
