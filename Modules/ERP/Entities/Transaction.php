@@ -18,6 +18,7 @@ class Transaction extends Model
         'payer_type',
         'amount',
         'description',
+        'type'
     ];
     
     public function payer()
@@ -33,5 +34,10 @@ class Transaction extends Model
     public function purpose()
     {
         return $this->morphTo();
+    }
+
+    public function courier_cashe()
+    {
+        return $this->belongsTo(CourierCash::class);
     }
 }
