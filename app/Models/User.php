@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Modules\ERP\Entities\CourierCash;
+use Modules\ERP\Entities\CourierWallet;
 use Modules\ERP\Entities\Order;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -50,9 +50,9 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
-    public function courier_cashe()
+    public function courier_wallet()
     {
-        return $this->hasOne(CourierCash::class);
+        return $this->hasOne(CourierWallet::class);
     }
 
 }

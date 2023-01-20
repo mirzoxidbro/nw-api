@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('courier_cashes', function (Blueprint $table) {
+        Schema::create('courier_wallet', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('transaction_id');
             $table->unsignedBigInteger('user_id');
