@@ -23,7 +23,6 @@ class TransactionController extends Controller
         $model->payer()->associate($user);
         $model->receiver()->associate($worker);
         $model->purpose()->associate($purpose);
-        // dd($model);
         $model->save();
         return $model;
     }
