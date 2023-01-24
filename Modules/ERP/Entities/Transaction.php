@@ -35,9 +35,4 @@ class Transaction extends Model
     {
         return $this->morphTo();
     }
-
-    public function courier_wallet()
-    {
-        return $this->belongsTo(CourierWallet::class);
-    }
 }

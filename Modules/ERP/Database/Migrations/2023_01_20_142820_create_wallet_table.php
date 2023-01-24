@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('courier_wallet', function (Blueprint $table) {
+        Schema::create('wallet', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('transaction_id');
             $table->unsignedBigInteger('user_id');
             $table->integer('amount');
             $table->timestamps();
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('courier_cashes');
+        Schema::dropIfExists('wallet');
     }
 };
