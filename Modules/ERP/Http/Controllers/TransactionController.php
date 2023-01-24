@@ -36,4 +36,19 @@ class TransactionController extends Controller
         }
         return $model;
     }
+
+    public function income()
+    {
+
+    }
+
+    public function expense()
+    {
+
+    }
+
+    public function transfer()
+    {
+        
+    }
 }
