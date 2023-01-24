@@ -12,11 +12,13 @@ class PaymentPurposeController extends Controller
 {
     public function index()
     {
-        $income = PaymentPurpose::query()->select('id', 'type')->where('type', 'income')->get();
-        $expense = PaymentPurpose::query()->select('id', 'type')->where('type', 'expense')->get();
+        $income = PaymentPurpose::query()->select('id', 'type', 'title')->where('type', 'income')->get();
+        $expense = PaymentPurpose::query()->select('id', 'type', 'title')->where('type', 'expense')->get();
+        $transfer = PaymentPurpose::query()->select('id', 'type', 'title')->where('type', 'transfer')->get();
         return response()->json([
             'income' => $income,
             'expense' => $expense,
+            'transfer' => $transfer
         ]);
     }
 
@@ -28,31 +30,27 @@ class PaymentPurposeController extends Controller
     public function update(PaymentPurposeRequest $request, $id)
     {
         $purpose = PaymentPurpose::findOrFail($id);
-        if($purpose->canBeChanged == 0)
-        {
+        if ($purpose->canBeChanged == 0) {
             return response()->json(['message' => 'Cannot be changed']);
-        }else{
+        } else {
             $purpose->type = $request->type;
             $purpose->title = $request->title;
             $purpose->save();
             return response()->json(['data' => $purpose]);
         }
-
     }
 
     public function delete($id)
     {
         $purpose = PaymentPurpose::findOrFail($id);
-        if($purpose->canBeChanged == true)
-        {
+        if ($purpose->canBeChanged == true) {
             $purpose->delete();
             return response()->json([
                 'message' => 'deleted successfully'
             ]);
-        }else{
-            return response()->json([
-                'message' => 'cannot be deleted'
-            ]);
         }
+        return response()->json([
+            'message' => 'cannot be deleted'
+        ]);
     }
 }
