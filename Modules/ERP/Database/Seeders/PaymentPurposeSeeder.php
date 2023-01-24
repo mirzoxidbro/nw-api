@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Modules\ERP\Entities\PaymentPurpose;
 
-class PaymentPurposeSeederTableSeeder extends Seeder
+class PaymentPurposeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,36 +20,36 @@ class PaymentPurposeSeederTableSeeder extends Seeder
         PaymentPurpose::create([
             'type' => 'income',
             'title' => 'from the order', // buyurtmadan
-            'canBeChanged' => 'false'
+            'canBeChanged' => 0
         ]);
 
         PaymentPurpose::create([
             'type' => 'income',
             'title' => 'debt collection', // qarz undirish
-            'canBeChanged' => 'false'
+            'canBeChanged' => 0
         ]);
 
-        PaymentPurpose::create([
-            'type' => 'income',
-            'title' => 'investment', //investitsiya olish
-            'canBeChanged' => 'false'
-        ]);
+        // PaymentPurpose::create([
+        //     'type' => 'income',
+        //     'title' => 'investment', //investitsiya olish
+        //     'canBeChanged' => 'false'
+        // ]);
 
         PaymentPurpose::create([
             'type' => 'expense',
             'title' => 'lending',   //qarz berish
-            'canBeChanged' => 'false'
+            'canBeChanged' => 0
         ]);
 
         PaymentPurpose::create([
-            'type' => 'income',
+            'type' => 'expense',
             'title' => 'salary distribution', //oylik taqsimoti
-            'canBeChanged' => 'false'
+            'canBeChanged' => 0
         ]);
 
         PaymentPurpose::create([
-            'type' => 'income',
-            'title' => 'investment',
+            'type' => 'transfer',
+            'title' => 'transfer money',
             'canBeChanged' => 'false'
         ]);
     }
