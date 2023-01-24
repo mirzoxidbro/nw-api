@@ -18,14 +18,14 @@ return new class extends Migration
             $table->bigInteger('amount');
             $table->string('description');
 
-            $table->unsignedBigInteger('receiver_id');
-            $table->string('receiver_type');
+            $table->unsignedBigInteger('receiver_id')->nullable();
+            $table->string('receiver_type')->nullable();
             
-            $table->unsignedBigInteger('payer_id');
-            $table->string('payer_type');
+            $table->unsignedBigInteger('payer_id')->nullable();
+            $table->string('payer_type')->nullable();
 
-            $table->unsignedBigInteger('purpose_id')->nullable();
-            $table->string('purpose_type')->nullable();
+            $table->unsignedBigInteger('purpose_id');
+            $table->string('purpose_type');
             $table->timestamps();
         });
     }
