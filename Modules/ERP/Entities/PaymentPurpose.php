@@ -9,5 +9,5 @@ class PaymentPurpose extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['type', 'title'];
 }
