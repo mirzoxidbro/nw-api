@@ -52,17 +52,14 @@ Route::prefix('attendance')->group(function(){
 });
 
 Route::prefix('payment_purpose')->group(function(){
-    // Route::get('/', [AttendanceController::class, 'index']);
+    Route::get('/', [PaymentPurposeController::class, 'index']);
     Route::post('/', [PaymentPurposeController::class, 'store']);
-    // Route::get('/{attendance}', [AttendanceController::class, 'show']);
-    // Route::put('/{attendance}', [AttendanceController::class, 'update']);
-    // Route::delete('/{attendance}', [AttendanceController::class, 'delete']);
+    Route::put('/{attendance}', [PaymentPurposeController::class, 'update']);
+    Route::delete('/{attendance}', [PaymentPurposeController::class, 'delete']);
 });
 
 Route::prefix('transactions')->group(function(){
-    // Route::get('/', [AttendanceController::class, 'index']);
-    Route::post('/', [TransactionController::class, 'store']);
-    // Route::get('/{attendance}', [AttendanceController::class, 'show']);
-    // Route::put('/{attendance}', [AttendanceController::class, 'update']);
-    // Route::delete('/{attendance}', [AttendanceController::class, 'delete']);
+    Route::post('/income', [TransactionController::class, 'income']);
+    Route::post('/expense', [TransactionController::class, 'expense']);
+    Route::post('/transfer', [TransactionController::class, 'transfer']);
 });

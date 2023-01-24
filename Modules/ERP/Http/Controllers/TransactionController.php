@@ -13,42 +13,78 @@ use Modules\ERP\Entities\Workman;
 
 class TransactionController extends Controller
 {
-    public function store(Request $request)
+    public function income(Request $request)
     {
-        $user = User::find($request->payer_id);
-        $purpose = PaymentPurpose::find($request->purpose_id);
         $model = new Transaction();
         $model->amount = $request->amount;
         $model->description = $request->description;
-        if($request->type == 'expense'){
-            $worker = Workman::find($request->receiver_id);
-            $model->payer()->associate($user);
-            $model->receiver()->associate($worker);
-            $model->purpose()->associate($purpose);
-            $model->save();
-        }else{
-            $order = Order::find($request->payer_id);
-            $model->receiver()->associate($user);
-            $model->payer()->associate($order);
-            $model->purpose()->associate($purpose);
-            $model->save();
-            
+        $receiver = User::find($request->receiver_id);
+        $purpose = PaymentPurpose::find($request->purpose_id);
+
+        switch ($purpose->title) {
+            case 'from the order':
+                $payer = Order::find($request->payer_id);
+                $model->payer()->associate($payer);
+                $model->receiver()->associate($receiver);
+                $model->purpose()->associate($purpose);
+                break;
+            case 'debt collection':
+                $payer = Workman::find($request->payer_id);
+                $model->payer()->associate($payer);
+                $model->receiver()->associate($receiver);
+                $model->purpose()->associate($purpose);
+                break;
+            default:
+                $model->receiver()->associate($receiver);
+                $model->purpose()->associate($purpose);
+                break;
         }
+
+        $model->save();
         return $model;
     }
 
-    public function income()
+    public function expense(Request $request)
     {
+        $model = new Transaction();
+        $model->amount = $request->amount;
+        $model->description = $request->description;
+        $payer = User::find($request->receiver_id);
+        $purpose = PaymentPurpose::find($request->purpose_id);
+        switch ($purpose) {
+            case 'lending':
+                $receiver = Workman::find($request->receiver_id);
+                $model->payer()->associate($payer);
+                $model->receiver()->associate($receiver);
+                $model->purpose()->associate($purpose);
+                break;
+            case 'debt collection':
+                $receiver = Workman::find($request->payer_id);
+                $model->payer()->associate($payer);
+                $model->receiver()->associate($receiver);
+                $model->purpose()->associate($purpose);
+                break;
+            default:
+                $model->payer()->associate($payer);
+                $model->purpose()->associate($purpose);
+                break;
+        }
 
+        $model->save();
+        return $model;
     }
 
-    public function expense()
+    public function transfer(Request $request)
     {
-
-    }
-
-    public function transfer()
-    {
-        
+        $model = new Transaction();
+        $receiver = User::findOrFail($request->receiver_id);
+        $payer = User::findOrFail($request->payer_id);
+        $purpose = PaymentPurpose::findOrFail($request->purpose_id);
+        $model->amount = $request->amount;
+        $model->description = $request->description;
+        $model->payer()->associate($payer);
+        $model->receiver()->associate($receiver);
+        $model->purpose()->associate($purpose);
+        $model->save();
     }
 }
