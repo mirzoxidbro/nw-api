@@ -10,6 +10,7 @@ use Modules\ERP\Entities\Order;
 use Modules\ERP\Entities\PaymentPurpose;
 use Modules\ERP\Entities\Transaction;
 use Modules\ERP\Entities\Workman;
+use Modules\ERP\Http\Service\TransactionService\BaseTransactionService;
 
 class TransactionController extends Controller
 {
@@ -86,5 +87,10 @@ class TransactionController extends Controller
         $model->receiver()->associate($receiver);
         $model->purpose()->associate($purpose);
         $model->save();
+    }
+
+    public function transaction(BaseTransactionService $service, Request $request)
+    {
+        $service->BaseTransactionService($request);
     }
 }
