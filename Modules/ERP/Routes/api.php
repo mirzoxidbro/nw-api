@@ -59,8 +59,9 @@ Route::prefix('payment_purpose')->group(function(){
 });
 
 Route::prefix('transactions')->group(function(){
-    Route::post('/income', [TransactionController::class, 'income']);
-    Route::post('/expense', [TransactionController::class, 'expense']);
-    Route::post('/transfer', [TransactionController::class, 'transfer']);
+    // Route::post('/income', [TransactionController::class, 'income']);
+    // Route::post('/expense', [TransactionController::class, 'expense']);
+    // Route::post('/transfer', [TransactionController::class, 'transfer']);
     Route::post('/transaction', [TransactionController::class, 'transaction']);
+    Route::get('/alltransactions', [TransactionController::class, 'alltransactions']);
 });
