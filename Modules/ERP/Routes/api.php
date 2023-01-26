@@ -6,6 +6,7 @@ use Modules\ERP\Http\Controllers\CarpetController;
 use Modules\ERP\Http\Controllers\OrderController;
 use Modules\ERP\Http\Controllers\PaymentPurposeController;
 use Modules\ERP\Http\Controllers\TransactionController;
+use Modules\ERP\Http\Controllers\WalletController;
 use Modules\ERP\Http\Controllers\WorkmanController;
 
 /*
@@ -64,4 +65,13 @@ Route::prefix('transactions')->group(function(){
     // Route::post('/transfer', [TransactionController::class, 'transfer']);
     Route::post('/transaction', [TransactionController::class, 'transaction']);
     Route::get('/alltransactions', [TransactionController::class, 'alltransactions']);
+});
+
+Route::prefix('wallet')->group(function(){
+    // Route::post('/income', [TransactionController::class, 'income']);
+    // Route::post('/expense', [TransactionController::class, 'expense']);
+    // Route::post('/transfer', [TransactionController::class, 'transfer']);
+    Route::post('/', [WalletController::class, 'store']);
+    Route::post('/{id}', [WalletController::class, 'delete']);
+    Route::get('/', [WalletController::class, 'index']);
 });
