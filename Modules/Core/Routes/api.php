@@ -18,6 +18,7 @@ use Modules\Core\Http\Controllers\RoleAndPermission\RoleController;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
+Route::get('users', [AuthController::class, 'users']);
 
 Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::post('logout', [AuthController::class, 'logout']);
