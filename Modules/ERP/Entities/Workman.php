@@ -33,4 +33,9 @@ class Workman extends Model
             get: fn ($value) => Carbon::parse($value)->diffForHumans(),
         );
     }
+
+    public function debthistory()
+    {
+        return $this->hasMany(DebtHistory::class);
+    }
 }

@@ -9,6 +9,15 @@ class DebtHistory extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'transaction_id', 'amount', 'description'];
+    protected $fillable = ['workman_id', 'transaction_id', 'amount', 'description'];
     
+    public function workman()
+    {
+        return $this->belongsTo(Workman::class);
+    }
+
+    public function transaction()
+    {
+        return $this->belongsTo(Transaction::class);
+    }
 }

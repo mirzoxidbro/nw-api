@@ -35,4 +35,9 @@ class Transaction extends Model
     {
         return $this->morphTo();
     }
+
+    public function debthistory()
+    {
+        return $this->hasMany(DebtHistory::class);
+    }
 }
