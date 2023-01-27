@@ -10,7 +10,7 @@ class WorkmanRepository implements WorkmanRepositoryInterface
 {
     public function getWorkmans()
     {
-        return WorkmanResource::collection(Workman::select('name', 'phone', 'is_archived', 'updated_at')->paginate(10))->resource;
+        return WorkmanResource::collection(Workman::select('id', 'name', 'phone', 'is_archived', 'updated_at')->paginate(10))->resource;
     }
 
     public function save(array $data)
