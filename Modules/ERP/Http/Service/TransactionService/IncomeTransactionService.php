@@ -7,6 +7,7 @@ use Modules\ERP\Entities\Order;
 use Modules\ERP\Entities\Transaction;
 use Modules\ERP\Entities\Workman;
 use Modules\ERP\Jobs\CourierCashJob;
+use Modules\ERP\Jobs\DebtHistoryJob;
 
 class IncomeTransactionService
 {
@@ -24,7 +25,7 @@ class IncomeTransactionService
                 $model->receiver()->associate($receiver);
                 $model->purpose()->associate($purpose);
                 $model->save();
-                CourierCashJob::dispatch($model->amount);
+                CourierCashJob::dispatch($model);
                 break;
             case 'debt collection':
                 $payer = Workman::find($request->payer_id);
@@ -32,6 +33,7 @@ class IncomeTransactionService
                 $model->receiver()->associate($receiver);
                 $model->purpose()->associate($purpose);
                 $model->save();
+                DebtHistoryJob::dispatch($model->payer_id, $model->amount);
                 break;
             default:
                 $model->receiver()->associate($receiver);
