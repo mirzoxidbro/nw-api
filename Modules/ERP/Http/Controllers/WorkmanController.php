@@ -2,15 +2,13 @@
 
 namespace Modules\ERP\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\ERP\Http\UseCases\Workman\GetWorkmanUseCase;
 use Modules\ERP\Http\Requests\Worker\WorkerStoreRequest;
 use Modules\ERP\Http\Requests\Worker\WorkerUpdateRequest;
-use Modules\ERP\Http\UseCases\Workman\DeleteWorkmanUseCase;
-use Modules\ERP\Http\UseCases\Workman\GetWorkmanUseCase;
 use Modules\ERP\Http\UseCases\Workman\ShowWorkmanUseCase;
 use Modules\ERP\Http\UseCases\Workman\StoreWorkmanUseCase;
+use Modules\ERP\Http\UseCases\Workman\DeleteWorkmanUseCase;
 use Modules\ERP\Http\UseCases\Workman\UpdateWorkmanUseCase;
 
 class WorkmanController extends Controller

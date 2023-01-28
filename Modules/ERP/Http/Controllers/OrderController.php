@@ -3,13 +3,12 @@
 namespace Modules\ERP\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Modules\ERP\Entities\Order;
-use Modules\ERP\Http\Requests\Order\OrderStoreRequest;
-use Modules\ERP\Http\Requests\Order\OrderUpdateRequest;
-use Modules\ERP\Http\UseCases\Order\DeleteOrderUseCase;
 use Modules\ERP\Http\UseCases\Order\GetOrdersUseCase;
 use Modules\ERP\Http\UseCases\Order\ShowOrderUseCase;
 use Modules\ERP\Http\UseCases\Order\StoreOrderUseCase;
+use Modules\ERP\Http\Requests\Order\OrderStoreRequest;
+use Modules\ERP\Http\Requests\Order\OrderUpdateRequest;
+use Modules\ERP\Http\UseCases\Order\DeleteOrderUseCase;
 use Modules\ERP\Http\UseCases\Order\UpdateOrderUseCase;
 
 class OrderController extends Controller

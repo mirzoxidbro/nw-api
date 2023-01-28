@@ -3,12 +3,12 @@
 namespace Modules\ERP\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Modules\ERP\Http\Requests\Attendance\StoreAttendanceRequest;
-use Modules\ERP\Http\Requests\Attendance\UpdateAttendanceRequest;
-use Modules\ERP\Http\UseCases\Attendance\DeleteAttendanceUseCase;
 use Modules\ERP\Http\UseCases\Attendance\GetAttendanceUseCase;
 use Modules\ERP\Http\UseCases\Attendance\ShowAttendanceUseCase;
 use Modules\ERP\Http\UseCases\Attendance\StoreAttendanceUseCase;
+use Modules\ERP\Http\Requests\Attendance\StoreAttendanceRequest;
+use Modules\ERP\Http\Requests\Attendance\UpdateAttendanceRequest;
+use Modules\ERP\Http\UseCases\Attendance\DeleteAttendanceUseCase;
 use Modules\ERP\Http\UseCases\Attendance\UpdateAttendanceUseCase;
 
 class AttendanceController extends Controller

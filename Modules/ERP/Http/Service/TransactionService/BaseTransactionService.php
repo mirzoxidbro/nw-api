@@ -9,7 +9,7 @@ class BaseTransactionService
     public function BaseTransactionService($request)
     {
         $purpose = PaymentPurpose::findOrFail($request->purpose_id);
-        if($purpose){
+        
             switch ($purpose->type) {
                 case 'income':
                     return IncomeTransactionService::IncomeTransaction($request, $purpose);
@@ -24,13 +24,8 @@ class BaseTransactionService
                     break;
     
                 default:
-                    return "";
+                
                     break;
             }
-        }else{
-            return response()->json([
-                'message' => "error" // error bilan ishlash
-            ]);
-        }
     }
 }

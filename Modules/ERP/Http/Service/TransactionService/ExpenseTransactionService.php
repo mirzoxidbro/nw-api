@@ -3,11 +3,12 @@
 namespace Modules\ERP\Http\Service\TransactionService;
 
 use App\Models\User;
-use Modules\ERP\Entities\Transaction;
+use Modules\ERP\Jobs\WalletJob;
 use Modules\ERP\Entities\Workman;
-use Modules\ERP\Jobs\CourierCashJob;
+use Modules\ERP\Jobs\DebtHistoryJob;
+use Modules\ERP\Entities\Transaction;
 
-class ExpenseTransactionService 
+class ExpenseTransactionService
 {
 
     public static function ExpenseTransaction($request, $purpose)
@@ -16,32 +17,67 @@ class ExpenseTransactionService
         $model->amount = $request->amount;
         $model->description = $request->description;
         $payer = User::find($request->payer_id);
-        switch ($purpose) {
+        // if ($purpose == 'lending') {
+        //     $receiver = Workman::find($request->receiver_id);
+        //     $model->payer()->associate($payer);
+        //     $model->receiver()->associate($receiver);
+        //     $model->purpose()->associate($purpose);
+        //     $model->save();
+        //     WalletJob::dispatch($model);
+        //     DebtHistoryJob::dispatch($model);
+        // } elseif ($purpose == 'debt collection') {
+        //     $receiver = Workman::find($request->receiver_id);
+        //     $model->payer()->associate($payer);
+        //     $model->receiver()->associate($receiver);
+        //     $model->purpose()->associate($purpose);
+        //     $model->save();
+        //     WalletJob::dispatch($model);
+        // } elseif ($purpose == 'salary distribution') {
+        //     $receiver = Workman::find($request->receiver_id);
+        //     $model->payer()->associate($payer);
+        //     $model->receiver()->associate($receiver);
+        //     $model->purpose()->associate($purpose);
+        //     $model->save();
+        // } else {
+        //     $model->payer()->associate($payer);
+        //     $model->purpose()->associate($purpose);
+        //     $model->save();
+        //     WalletJob::dispatch($model);
+        // }
+
+
+        switch ($purpose->title) {
             case 'lending':
                 $receiver = Workman::find($request->receiver_id);
                 $model->payer()->associate($payer);
                 $model->receiver()->associate($receiver);
                 $model->purpose()->associate($purpose);
                 $model->save();
-                CourierCashJob::dispatch($model);
+                WalletJob::dispatch($model);
+                DebtHistoryJob::dispatch($model);
                 break;
             case 'debt collection':
-                $receiver = Workman::find($request->payer_id);
+                $receiver = Workman::find($request->receiver_id);
                 $model->payer()->associate($payer);
                 $model->receiver()->associate($receiver);
                 $model->purpose()->associate($purpose);
                 $model->save();
-                CourierCashJob::dispatch($model);
+                WalletJob::dispatch($model);
                 break;
+            case 'salary distribution' :
+                $receiver = Workman::find($request->receiver_id);
+                $model->payer()->associate($payer);
+                $model->receiver()->associate($receiver);
+                $model->purpose()->associate($purpose);
+                $model->save();
             default:
                 $model->payer()->associate($payer);
                 $model->purpose()->associate($purpose);
                 $model->save();
-                CourierCashJob::dispatch($model);
+                WalletJob::dispatch($model);
                 break;
         }
 
         return $model;
     }
-
 }

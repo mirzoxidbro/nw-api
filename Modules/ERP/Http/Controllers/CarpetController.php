@@ -3,12 +3,12 @@
 namespace Modules\ERP\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Modules\ERP\Http\Requests\Carpet\CarpetStoreRequest;
-use Modules\ERP\Http\Requests\Carpet\CarpetUpdateRequest;
-use Modules\ERP\Http\UseCases\Carpet\DeleteCarpetUseCase;
 use Modules\ERP\Http\UseCases\Carpet\GetCarpetsUseCase;
 use Modules\ERP\Http\UseCases\Carpet\ShowCarpetUseCase;
 use Modules\ERP\Http\UseCases\Carpet\StoreCarpetUseCase;
+use Modules\ERP\Http\Requests\Carpet\CarpetStoreRequest;
+use Modules\ERP\Http\Requests\Carpet\CarpetUpdateRequest;
+use Modules\ERP\Http\UseCases\Carpet\DeleteCarpetUseCase;
 use Modules\ERP\Http\UseCases\Carpet\UpdateCarpetUseCase;
 
 class CarpetController extends Controller

@@ -4,10 +4,10 @@ namespace Modules\ERP\Http\Service\TransactionService;
 
 use App\Models\User;
 use Modules\ERP\Entities\Order;
-use Modules\ERP\Entities\Transaction;
+use Modules\ERP\Jobs\WalletJob;
 use Modules\ERP\Entities\Workman;
-use Modules\ERP\Jobs\CourierCashJob;
 use Modules\ERP\Jobs\DebtHistoryJob;
+use Modules\ERP\Entities\Transaction;
 
 class IncomeTransactionService
 {
@@ -25,7 +25,7 @@ class IncomeTransactionService
                 $model->receiver()->associate($receiver);
                 $model->purpose()->associate($purpose);
                 $model->save();
-                CourierCashJob::dispatch($model);
+                WalletJob::dispatch($model);
                 break;
             case 'debt collection':
                 $payer = Workman::find($request->payer_id);
@@ -33,18 +33,17 @@ class IncomeTransactionService
                 $model->receiver()->associate($receiver);
                 $model->purpose()->associate($purpose);
                 $model->save();
-                CourierCashJob::dispatch($model);
-                DebtHistoryJob::dispatch($model->payer_id, $model->amount);
+                // dd($model, $request);
+                WalletJob::dispatch($model);
+                DebtHistoryJob::dispatch($model);
                 break;
             default:
                 $model->receiver()->associate($receiver);
                 $model->purpose()->associate($purpose);
                 $model->save();
-                CourierCashJob::dispatch($model);
+                WalletJob::dispatch($model);
                 break;
         }
-
-        
         return $model;
     }
 }

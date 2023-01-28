@@ -2,8 +2,6 @@
 
 namespace Modules\ERP\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\ERP\Entities\PaymentPurpose;
 use Modules\ERP\Http\Requests\PaymentPurpose\PaymentPurposeRequest;
