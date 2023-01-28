@@ -2,16 +2,15 @@
 
 namespace Modules\ERP\Jobs;
 
-use App\Models\User;
 use Illuminate\Bus\Queueable;
+use Modules\ERP\Entities\Wallet;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
 use Modules\ERP\Entities\PaymentPurpose;
-use Modules\ERP\Entities\Wallet;
+use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class CourierCashJob implements ShouldQueue
+class WalletJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     private $model;
@@ -34,19 +33,6 @@ class CourierCashJob implements ShouldQueue
     {
         $purpose = PaymentPurpose::where('id', $this->model->purpose_id)->first();
         $amount = $this->model->amount;
-
-        // switch ($purpose->type) {
-        //     case 'transer':
-        //         Wallet::where('user_id', $this->model->receiver_id)->increment('amount', $amount);
-        //         Wallet::where('user_id', $this->model->payer_id)->decrement('amount', $amount);
-        //         break;
-        //     case 'income':
-        //         Wallet::where('user_id', $this->model->receiver_id)->increment('amount', $amount);
-        //         break;
-        //     default:
-        //         Wallet::where('user_id', $this->model->receiver_id)->decrement('amount', $amount);
-        //         break;
-        // }
 
         if ($purpose->type == 'transfer') {
             Wallet::where('user_id', $this->model->receiver_id)->increment('amount', $amount);
