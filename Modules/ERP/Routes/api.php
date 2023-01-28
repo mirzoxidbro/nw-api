@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Modules\ERP\Http\Controllers\AttendanceController;
 use Modules\ERP\Http\Controllers\CarpetController;
+use Modules\ERP\Http\Controllers\DebtHistoryController;
 use Modules\ERP\Http\Controllers\OrderController;
 use Modules\ERP\Http\Controllers\PaymentPurposeController;
 use Modules\ERP\Http\Controllers\TransactionController;
@@ -74,4 +75,12 @@ Route::prefix('wallet')->group(function(){
     Route::post('/', [WalletController::class, 'store']);
     Route::post('/{id}', [WalletController::class, 'delete']);
     Route::get('/', [WalletController::class, 'index']);
+});
+
+Route::prefix('debthistory')->group(function(){
+    // Route::post('/income', [TransactionController::class, 'income']);
+    // Route::post('/expense', [TransactionController::class, 'expense']);
+    // Route::post('/transfer', [TransactionController::class, 'transfer']);
+    Route::get('/', [DebtHistoryController::class, 'index']);
+    Route::post('/', [DebtHistoryController::class, 'store']);
 });

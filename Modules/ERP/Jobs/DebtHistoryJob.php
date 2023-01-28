@@ -11,15 +11,17 @@ use Illuminate\Foundation\Bus\Dispatchable;
 class DebtHistoryJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
+    private $payer_id;
+    private $amount;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($payer_id, $amount)
     {
-        
+        $this->payer_id = $payer_id;
+        $this->amount = $amount;
     }
 
     /**
@@ -29,6 +31,6 @@ class DebtHistoryJob implements ShouldQueue
      */
     public function handle()
     {
-        
+        dd($this->payer_id, $this->amount);
     }
 }
