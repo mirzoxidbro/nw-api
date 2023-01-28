@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('debt_histories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('transaction_id');
-            $table->integer('amount');
-            $table->string('description');
+            $table->unsignedBigInteger('workman_id');
+            $table->unsignedBigInteger('transaction_id')->nullable();
+            $table->integer('amount')->nullable();
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
