@@ -33,12 +33,14 @@ class IncomeTransactionService
                 $model->receiver()->associate($receiver);
                 $model->purpose()->associate($purpose);
                 $model->save();
+                CourierCashJob::dispatch($model);
                 DebtHistoryJob::dispatch($model->payer_id, $model->amount);
                 break;
             default:
                 $model->receiver()->associate($receiver);
                 $model->purpose()->associate($purpose);
                 $model->save();
+                CourierCashJob::dispatch($model);
                 break;
         }
 

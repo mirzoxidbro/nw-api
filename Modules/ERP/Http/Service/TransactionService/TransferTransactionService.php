@@ -4,6 +4,7 @@ namespace Modules\ERP\Http\Service\TransactionService;
 
 use App\Models\User;
 use Modules\ERP\Entities\Transaction;
+use Modules\ERP\Jobs\CourierCashJob;
 
 class TransferTransactionService
 {
@@ -18,6 +19,7 @@ class TransferTransactionService
         $model->receiver()->associate($receiver);
         $model->purpose()->associate($purpose);
         $model->save();
+        CourierCashJob::dispatch($model);
         return $model;
     }
 }
