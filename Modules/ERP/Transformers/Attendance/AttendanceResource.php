@@ -3,7 +3,7 @@
 namespace Modules\ERP\Transformers\Attendance;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Modules\ERP\Transformers\Workers\WorkerResource;
+use Modules\ERP\Transformers\Workman\WorkmanResource;
 
 class AttendanceResource extends JsonResource
 {
@@ -18,7 +18,7 @@ class AttendanceResource extends JsonResource
         return [
             'id' => $this->id,
             'date' => $this->date,
-            'workers' => WorkerResource::collection($this->workers)
+            'workers' => WorkmanResource::collection($this->workers)
         ];
     }
 }
