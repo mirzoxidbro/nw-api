@@ -3,6 +3,7 @@
 namespace Modules\ERP\Transformers\Workman;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Modules\ERP\Transformers\DebtHistory\DebtHistoryResource;
 
 class WorkmanResource extends JsonResource
 {
@@ -18,8 +19,7 @@ class WorkmanResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'phone' => $this->phone,
-            'is_archived' => $this->is_archived,
-            'updated_at' => $this->updated_at,
+            'debt history' => DebtHistoryResource::collection($this->debthistory)
         ];
     }
 }
