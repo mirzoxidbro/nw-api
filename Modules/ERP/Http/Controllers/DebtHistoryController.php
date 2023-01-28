@@ -8,10 +8,6 @@ use Modules\ERP\Entities\DebtHistory;
 
 class DebtHistoryController extends Controller
 {
-   public function index()
-   {
-      return DebtHistory::query()->get();
-   }
 
    public function store(Request $request)
    {
