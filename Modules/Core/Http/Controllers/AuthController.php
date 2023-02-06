@@ -12,61 +12,50 @@ use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
 {
-    public function register(UserRequest $request)
+    public function __construct()
     {
-        $user = User::create([
-            "name" => $request->name,
-            "email" => $request->email,
-            "password" => Hash::make($request->password)
-        ]);
-
-        $token = $user->createToken("MyApp")->plainTextToken;
-
-        return response()->json([
-            'user' => $user,
-            'token' => $token
-        ]);
+        $this->middleware('auth:api', ['except' => ['login']]);
     }
 
-    public function login(Request $request)
+    public function login()
     {
-        $credentials = $request->only(['email', 'password']);
+        $credentials = request(['username', 'password']);
 
-        if(Auth::attempt($credentials)){
-            $user = Auth::user(); 
-            $success['token'] =  $user->createToken('MyApp')->plainTextToken; 
-            $success['name'] =  $user->name;
-   
-            return response()->json([
-                $success
-            ]);
+        if (!$token = auth()->attempt($credentials)) {
+            return response()->errorJson(['error' => 'Unauthorized'], 401);
         }
 
-        else{ 
-            return response()->json(['error'=>'Unauthorized']);
+        if (auth()->user()->status == 'inactive') {
+            return response()->errorJson("User isn't active", 401);
         }
+
+        return $this->respondWithToken($token);
+    }
+
+    public function me()
+    {
+        return response()->successJson(auth()->user());
     }
 
     public function logout()
     {
-        auth()->user()->tokens()->delete();
-        return response()->json([
-            "Log out"
+        Auth::logout();
+
+        return response()->successJson(['message' => 'Successfully logged out']);
+    }
+
+    public function refresh()
+    {
+        return $this->respondWithToken(auth()->refresh());
+    }
+
+    protected function respondWithToken($token)
+    {
+        return response()->successJson([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => auth('api')->factory()->getTTL() * 60
         ]);
     }
 
-    public function assignRole(int $userId, int $roleId)
-    {
-        $user = User::findOrFail($userId);
-        $role = Role::findOrFail($roleId);
-
-        $user->assignRole($role);
-
-        return $user;
-    }
-
-    public function users()
-    {
-        return User::all();
-    }
 }
