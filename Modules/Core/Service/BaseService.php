@@ -6,33 +6,16 @@ namespace Modules\Core\Service;
 
 use Illuminate\Database\Eloquent\Builder;
 
-/**
- * Class BaseService
- * @package App\Services
- */
 class BaseService
 {
-    /**
-     * @var
-     */
     protected $repo;
-    /**
-     * @var
-     */
+
     protected $relation;
-    /**
-     * @var
-     */
+
     protected $attributes;
-    /**
-     * @var
-     */
+
     protected $sort_fields;
 
-    /**
-     * @param array $params
-     * @return mixed
-     */
     public function get(array $params, $pagination = true)
     {
         $perPage = null;
@@ -50,11 +33,6 @@ class BaseService
         return $query;
     }
 
-    /**
-     * @param Builder $query
-     * @param null $relation
-     * @return Builder
-     */
     public function relation(Builder $query, $relation = null)
     {
         if ($relation) {
@@ -63,11 +41,6 @@ class BaseService
         return $query;
     }
 
-    /**
-     * @param Builder $query
-     * @param null $attributes
-     * @return Builder
-     */
     public function select(Builder $query, $attributes = null)
     {
         if ($attributes) {
@@ -77,12 +50,6 @@ class BaseService
     }
 
 
-    /**
-     * @param Builder $query
-     * @param $filter_fields
-     * @param $params
-     * @return Builder
-     */
     public function filter(Builder $query, $filter_fields, $params)
     {
         foreach ($filter_fields as $key => $item) {
@@ -102,11 +69,6 @@ class BaseService
         return $query;
     }
 
-    /**
-     * @param $query
-     * @param array $params
-     * @return Builder
-     */
     public function sort($query, $sort_fields = null, array $params): Builder
     {
         $key = 'id';
@@ -124,39 +86,22 @@ class BaseService
         return $query;
     }
 
-    /**
-     * @param $params
-     * @return mixed
-     */
     public function create($params)
     {
         return $this->repo->store($params);
     }
 
-    /**
-     * @param $id
-     * @return mixed
-     */
     public function show($id)
     {
         return $this->repo->getById($id);
     }
 
-    /**
-     * @param $params
-     * @param $id
-     * @return mixed
-     */
     public function edit($params, $id)
     {
         return $this->repo->update($params, $id);
 
     }
 
-    /**
-     * @param int $id
-     * @return mixed
-     */
     public function delete(int $id)
     {
         return $this->repo->destroy($id);
