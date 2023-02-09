@@ -24,10 +24,10 @@ Route::group(['prefix' => 'auth'], static function () {
     Route::post('register', [UserController::class, 'store']);
 });
 
-Route::group(['middleware' => ['auth:sanctum']], function(){
-    Route::apiResource('users', UserController::class);
-    Route::post('logout', [AuthController::class, 'logout']);
-    Route::post('assignRole/{userId}/{roleId}', [AuthController::class, 'assignRole']);
+// Route::group(['middleware' => ['auth:sanctum']], function(){
+//     Route::apiResource('users', UserController::class);
+//     Route::post('logout', [AuthController::class, 'logout']);
+//     Route::post('assignRole/{userId}/{roleId}', [AuthController::class, 'assignRole']);
 
     Route::prefix('roles')->group(function(){
         Route::get('getRoles', [RoleController::class, 'getRoles']);
@@ -48,4 +48,4 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::prefix('permissions')->group(function(){
         Route::get('/permissions', [PermissionController::class, 'getPermissions']);
     });
-});
+// });
