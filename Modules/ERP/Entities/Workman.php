@@ -12,7 +12,7 @@ class Workman extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'phone', 'is_archived'];
+    protected $fillable = ['name', 'phone'];
     
     public function attendances(): BelongsToMany
     {

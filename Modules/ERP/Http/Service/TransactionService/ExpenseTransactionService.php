@@ -17,34 +17,6 @@ class ExpenseTransactionService
         $model->amount = $request->amount;
         $model->description = $request->description;
         $payer = User::find($request->payer_id);
-        // if ($purpose == 'lending') {
-        //     $receiver = Workman::find($request->receiver_id);
-        //     $model->payer()->associate($payer);
-        //     $model->receiver()->associate($receiver);
-        //     $model->purpose()->associate($purpose);
-        //     $model->save();
-        //     WalletJob::dispatch($model);
-        //     DebtHistoryJob::dispatch($model);
-        // } elseif ($purpose == 'debt collection') {
-        //     $receiver = Workman::find($request->receiver_id);
-        //     $model->payer()->associate($payer);
-        //     $model->receiver()->associate($receiver);
-        //     $model->purpose()->associate($purpose);
-        //     $model->save();
-        //     WalletJob::dispatch($model);
-        // } elseif ($purpose == 'salary distribution') {
-        //     $receiver = Workman::find($request->receiver_id);
-        //     $model->payer()->associate($payer);
-        //     $model->receiver()->associate($receiver);
-        //     $model->purpose()->associate($purpose);
-        //     $model->save();
-        // } else {
-        //     $model->payer()->associate($payer);
-        //     $model->purpose()->associate($purpose);
-        //     $model->save();
-        //     WalletJob::dispatch($model);
-        // }
-
 
         switch ($purpose->title) {
             case 'lending':
