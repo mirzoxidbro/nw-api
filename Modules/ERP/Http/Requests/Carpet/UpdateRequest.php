@@ -4,7 +4,7 @@ namespace Modules\ERP\Http\Requests\Carpet;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CarpetStoreRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -13,14 +13,8 @@ class CarpetStoreRequest extends FormRequest
      */
     public function rules()
     {
-        // dd($this->request);
         return [
-            'order_id' => 'required|integer',
-            'longtitute' => 'required|numeric',
-            'latitute' => 'required|numeric',
-            'type' => 'required|in:thin,ordinary,special',
-            'status' => 'nullable|in:was_brought,washed,prepared',
-            'info' => 'nullable|string'
+            //
         ];
     }
 

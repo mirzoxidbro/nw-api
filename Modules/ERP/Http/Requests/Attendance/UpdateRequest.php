@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\ERP\Http\Requests\Worker;
+namespace Modules\ERP\Http\Requests\Attendance;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class WorkerUpdateRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,9 +14,7 @@ class WorkerUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
-            'phone' => 'required|string',
-            'is_archived' => 'nullable'
+            //
         ];
     }
 

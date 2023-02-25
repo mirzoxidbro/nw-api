@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\ERP\Http\Requests\Worker;
+namespace Modules\ERP\Http\Requests\Carpet;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class WorkerStoreRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,9 +14,7 @@ class WorkerStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
-            'phone' => 'required|string|unique:workmen',
-            'is_archived' => 'nullable|boolean'
+            //
         ];
     }
 
