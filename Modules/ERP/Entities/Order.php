@@ -24,7 +24,7 @@ class Order extends Model
         return $this->hasMany(Carpet::class);
     }
 
-
+ 
     protected function updatedAt(): Attribute
     {
         return Attribute::make(

@@ -16,7 +16,7 @@ class OrderStoreRequest extends FormRequest
         return [
             'location' => 'string|required',
             'amount' => 'integer|required',
-            'user_id' => 'integer|required'
+            'user_id' => 'integer|required|exists:users,id'
         ];
     }
 

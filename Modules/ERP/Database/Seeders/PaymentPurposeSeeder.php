@@ -50,7 +50,7 @@ class PaymentPurposeSeeder extends Seeder
         PaymentPurpose::create([
             'type' => 'transfer',
             'title' => 'transfer money',
-            'canBeChanged' => 'false'
+            'canBeChanged' => 0
         ]);
     }
 }

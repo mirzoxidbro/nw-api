@@ -29,13 +29,13 @@ Route::prefix('order')->group(function(){
     Route::delete('/{order}', [OrderController::class, 'delete']);
 });
 
-Route::prefix('carpet')->group(function(){
-    Route::get('/', [CarpetController::class, 'index']);
-    Route::post('/', [CarpetController::class, 'store']);
-    Route::get('/{carpet}', [CarpetController::class, 'show']);
-    Route::put('/{carpet}', [CarpetController::class, 'update']);
-    Route::delete('/{carpet}', [CarpetController::class, 'delete']);
-});
+    // Rout`e::prefix('carpet')->group(function(){
+    //     Route::get('/', [CarpetController::class, 'index']);
+    //     Route::post('/', [CarpetController::class, 'store']);
+    //     Route::get('/{carpet}', [CarpetController::class, 'show']);
+    //     Route::put('/{carpet}', [CarpetController::class, 'update']);
+    //     Route::delete('/{carpet}', [CarpetController::class, 'delete']);
+    // });`
 
 Route::prefix('worker')->group(function(){
     Route::get('/', [WorkmanController::class, 'index']);

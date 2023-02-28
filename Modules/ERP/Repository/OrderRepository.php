@@ -10,7 +10,7 @@ class OrderRepository implements OrderRepositoryInterface
 {
     public function getOrders()
     {
-        return OrderResource::collection(Order::query()->with('user:id,name')->paginate(10))->resource;
+        return OrderResource::collection(Order::query()->with('user:id,username')->paginate(10))->resource;
     }
 
     public function save(array $data)
