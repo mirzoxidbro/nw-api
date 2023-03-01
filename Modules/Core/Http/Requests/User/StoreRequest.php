@@ -3,6 +3,7 @@
 namespace Modules\Core\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Enum;
 
 class StoreRequest extends FormRequest
 {
@@ -18,6 +19,7 @@ class StoreRequest extends FormRequest
             'last_name' => 'string|required|max:255',
             'username' => 'required|max:150|unique:users,username',
             'password' => 'required|min:4',
+            'position' =>  ['required', new Enum(UserType::class)],
             'phone' => 'nullable|max:15|regex:/^(998)[0-9]{9}$/',
             'birthday' => 'nullable|date_format:Y-m-d',
             'gender' => 'nullable|boolean',

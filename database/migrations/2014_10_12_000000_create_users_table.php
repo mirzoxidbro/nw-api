@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('username', 150)->nullable()->unique();
+            $table->string('position');
             $table->tinyInteger('status')->default(1);//active and inactive
             $table->string('phone', 15)->nullable();
             $table->date('birthday')->nullable();
