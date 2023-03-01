@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\ERP\Http\Service\TransactionService;
+namespace Modules\ERP\Service\Transaction;
 
 use App\Models\User;
 use Modules\ERP\Entities\Order;
@@ -33,7 +33,6 @@ class IncomeTransactionService
                 $model->receiver()->associate($receiver);
                 $model->purpose()->associate($purpose);
                 $model->save();
-                // dd($model, $request);
                 WalletJob::dispatch($model);
                 DebtHistoryJob::dispatch($model);
                 break;

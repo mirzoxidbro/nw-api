@@ -12,7 +12,6 @@ trait TransactionIncome
 {
     public function TransactionIncome($params, $purpose)
     {
-        dd($params, $purpose);
         $model = new Transaction();
         $model->amount = $params->amount;
         $model->description = $params->description;

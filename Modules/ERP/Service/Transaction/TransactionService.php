@@ -1,20 +1,13 @@
 <?php
 
-namespace Modules\ERP\Service;
+namespace Modules\ERP\Service\Transaction;
 
-use Faker\Provider\ar_EG\Payment;
-use Illuminate\Support\Facades\DB;
 use Modules\Core\Service\BaseService;
 use Modules\ERP\Entities\PaymentPurpose;
-use Modules\ERP\Events\TransactionEvent;
-use Modules\ERP\Http\Trait\TransactionExpense;
-use Modules\ERP\Http\Trait\TransactionIncome;
-use Modules\ERP\Http\Trait\TransactionTransfer;
 use Modules\ERP\Repository\TransactionRepository;
 
 class TransactionService extends BaseService
 {
-    use TransactionIncome, TransactionExpense, TransactionTransfer;
 
     public function __construct(TransactionRepository $repo)
     {
@@ -27,15 +20,15 @@ class TransactionService extends BaseService
         
             switch ($purpose->type) {
                 case 'income':
-                    return $this->TransactionIncome($params, $purpose);
+                    return IncomeTransactionService::IncomeTransaction($params, $purpose);
                     break;
     
                 case 'expense':
-                    return $this->TransactionExpense($params, $purpose);
+                    return ExpenseTransactionService::ExpenseTransaction($params, $purpose);
                     break;
     
                 case 'transfer':
-                    return $this->TransactionTransfer($params, $purpose);
+                    return TransferTransactionService::TransferTransaction($params, $purpose);
                     break;
     
                 default:

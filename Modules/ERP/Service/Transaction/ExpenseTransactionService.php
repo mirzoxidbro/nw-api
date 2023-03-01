@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\ERP\Http\Service\TransactionService;
+namespace Modules\ERP\Service\Transaction;
 
 use App\Models\User;
 use Modules\ERP\Jobs\WalletJob;
