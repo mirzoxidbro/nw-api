@@ -7,6 +7,7 @@ use Modules\ERP\Http\Controllers\DebtHistoryController;
 use Modules\ERP\Http\Controllers\OrderController;
 use Modules\ERP\Http\Controllers\PaymentPurposeController;
 use Modules\ERP\Http\Controllers\TransactionController;
+use Modules\ERP\Http\Controllers\TransactionPurposeController;
 use Modules\ERP\Http\Controllers\WalletController;
 use Modules\ERP\Http\Controllers\WorkmanController;
 
@@ -53,11 +54,11 @@ Route::prefix('attendance')->group(function(){
     Route::delete('/{attendance}', [AttendanceController::class, 'delete']);
 });
 
-Route::prefix('payment_purpose')->group(function(){
-    Route::get('/', [PaymentPurposeController::class, 'index']);
-    Route::post('/', [PaymentPurposeController::class, 'store']);
-    Route::put('/{attendance}', [PaymentPurposeController::class, 'update']);
-    Route::delete('/{attendance}', [PaymentPurposeController::class, 'delete']);
+Route::prefix('transaction_purpose')->group(function(){
+    Route::get('/', [TransactionPurposeController::class, 'index']);
+    Route::post('/', [TransactionPurposeController::class, 'store']);
+    Route::put('/{attendance}', [TransactionPurposeController::class, 'update']);
+    Route::delete('/{attendance}', [TransactionPurposeController::class, 'delete']);
 });
 
 Route::prefix('transactions')->group(function(){

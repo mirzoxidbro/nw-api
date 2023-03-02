@@ -55,12 +55,12 @@ class BaseService
         foreach ($filter_fields as $key => $item) {
             if (array_key_exists($key, $params) && $params[$key]) {
                 if ($item['type'] == 'string')
-                    $query->where($key, 'ilike', '%' . $params[$key] . '%');
+                    $query->where($key, 'like', '%' . $params[$key] . '%');
                 if ($item['type'] == 'number')
                     $query->where($key, $params[$key]);
                 if ($params[$key] and $item['type'] == 'json') {
                     if ($item['search'] == 'string')
-                        $query->where('data->' . $key . '', 'ilike', $params[$key]);
+                        $query->where('data->' . $key . '', 'like', $params[$key]);
                     if ($item['search'] == 'number')
                         $query->where('data->' . $key . '', $params[$key]);
                 }

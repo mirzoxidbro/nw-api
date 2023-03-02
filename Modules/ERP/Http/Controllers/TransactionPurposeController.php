@@ -3,11 +3,9 @@
 namespace Modules\ERP\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Modules\ERP\Entities\TransactionPurpose;
-use Modules\ERP\Http\Requests\PaymentPurpose\IndexRequest;
-use Modules\ERP\Http\Requests\PaymentPurpose\PaymentPurposeRequest;
-use Modules\ERP\Http\Requests\PaymentPurpose\StoreRequest;
-use Modules\ERP\Http\Requests\PaymentPurpose\UpdateRequest;
+use Modules\ERP\Http\Requests\TransactionPurpose\IndexRequest;
+use Modules\ERP\Http\Requests\TransactionPurpose\StoreRequest;
+use Modules\ERP\Http\Requests\TransactionPurpose\UpdateRequest;
 use Modules\ERP\Service\TransactionPurpose\TransactionPurposeService;
 
 class TransactionPurposeController extends Controller

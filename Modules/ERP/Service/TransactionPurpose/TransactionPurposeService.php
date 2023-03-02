@@ -22,7 +22,7 @@ class TransactionPurposeService extends BaseService
             'id',
             'title',
             'type',
-            'update_at'
+            'updated_at'
         ];
     }
 

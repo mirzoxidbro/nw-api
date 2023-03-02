@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\ERP\Http\Requests\PaymentPurpose;
+namespace Modules\ERP\Http\Requests\TransactionPurpose;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Enum;
