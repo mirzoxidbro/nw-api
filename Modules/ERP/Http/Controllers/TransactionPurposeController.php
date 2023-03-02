@@ -4,51 +4,67 @@ namespace Modules\ERP\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Modules\ERP\Entities\TransactionPurpose;
+use Modules\ERP\Http\Requests\PaymentPurpose\IndexRequest;
 use Modules\ERP\Http\Requests\PaymentPurpose\PaymentPurposeRequest;
+use Modules\ERP\Http\Requests\PaymentPurpose\StoreRequest;
+use Modules\ERP\Http\Requests\PaymentPurpose\UpdateRequest;
+use Modules\ERP\Service\TransactionPurpose\TransactionPurposeService;
 
 class TransactionPurposeController extends Controller
 {
-    public function index()
+    public TransactionPurposeService $service;
+    public function __construct(TransactionPurposeService $service)
     {
-        $income = TransactionPurpose::query()->select('id', 'type', 'title')->where('type', 'income')->get();
-        $expense = TransactionPurpose::query()->select('id', 'type', 'title')->where('type', 'expense')->get();
-        $transfer = TransactionPurpose::query()->select('id', 'type', 'title')->where('type', 'transfer')->get();
-        return response()->json([
-            'income' => $income,
-            'expense' => $expense,
-            'transfer' => $transfer
-        ]);
+        $this->service = $service;
     }
 
-    public function store(PaymentPurposeRequest $request)
+    public function index(IndexRequest $request)
     {
-        return TransactionPurpose::create($request->validated());
+        $params = $request->validated();
+        $lists = $this->service->get($params);
+
+        if ($lists)
+            return response()->successJson($lists);
+        else
+            return response()->errorJson('Object not found', 404);
     }
 
-    public function update(PaymentPurposeRequest $request, $id)
+    public function store(StoreRequest $request)
     {
-        $purpose = TransactionPurpose::findOrFail($id);
-        if ($purpose->canBeChanged == 0) {
-            return response()->json(['message' => 'Cannot be changed']);
-        } else {
-            $purpose->type = $request->type;
-            $purpose->title = $request->title;
-            $purpose->save();
-            return response()->json(['data' => $purpose]);
-        }
+        $params = $request->validated();
+        $data = $this->service->create($params);
+        if ($data)
+            return response()->successJson($data);
+        else
+            return response()->errorJson('Ошибка при создании');
+    }
+
+    public function show(int $id)
+    {
+        $data = $this->service->show($id);
+        if ($data)
+            return response()->successJson($data);
+        else
+            return response()->errorJson('Информация не найдена', 404);
+    }
+
+    public function update(UpdateRequest $request, $id)
+    {
+        $params = $request->validated();
+        $data = $this->service->edit($params, $id);
+        if ($data)
+            return response()->successJson($data);
+        else
+            return response()->errorJson('Ошибка при обновлении', 404);
     }
 
     public function delete($id)
     {
-        $purpose = TransactionPurpose::findOrFail($id);
-        if ($purpose->canBeChanged == true) {
-            $purpose->delete();
-            return response()->json([
-                'message' => 'deleted successfully'
-            ]);
-        }
-        return response()->json([
-            'message' => 'cannot be deleted'
-        ]);
+        $model = $this->service->delete($id);
+
+        if ($model)
+            return response()->successJson('Успешно удалено');
+        else
+            return response()->errorJson('Не удалено', 404);
     }
 }
