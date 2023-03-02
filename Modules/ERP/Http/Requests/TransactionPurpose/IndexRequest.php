@@ -4,7 +4,7 @@ namespace Modules\ERP\Http\Requests\PaymentPurpose;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class IndexRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,7 +14,12 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'sort_key' => 'nullable',
+            'sort_type' => 'required_with:sort_key',
+            'type' => 'nullable|string',
+            'title' => 'nullable|string',
+            'page' => 'nullable|numeric',
+            'per_page' => 'nullable|numeric'
         ];
     }
 

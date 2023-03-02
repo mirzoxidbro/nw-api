@@ -2,7 +2,7 @@
 
 namespace Modules\ERP\Enum;
 
-enum PaymentPurposeType: string
+enum TransactionPurposeType: string
 {
     case INCOME = 'income';
     case EXPENSE = 'expense';
@@ -11,10 +11,10 @@ enum PaymentPurposeType: string
     public function message(): string
     {
         return match ($this) {
-            self::INCOME => 'кг',
-            self::EXPENSE => 'метр',
-            self::TRANSFER => 'дона',
-            default => 'Неизвестно',
+            self::INCOME => 'income',
+            self::EXPENSE => 'expense',
+            self::TRANSFER => 'transfer',
+            default => 'Undefined',
         };
     }
 
@@ -22,10 +22,10 @@ enum PaymentPurposeType: string
     public static function getValueByMessage(string $message)
     {
         return match ($message) {
-            'кг' => self::INCOME,
-            'метр' => self::EXPENSE,
-            'дона' => self::TRANSFER,
-            default => 'Неизвестно',
+            'income' => self::INCOME,
+            'expense' => self::EXPENSE,
+            'transfer' => self::TRANSFER,
+            default => 'Undefined',
         };
     }
 }

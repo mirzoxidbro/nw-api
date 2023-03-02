@@ -3,8 +3,10 @@
 namespace Modules\ERP\Http\Requests\PaymentPurpose;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Enum;
+use Modules\ERP\Enum\TransactionPurposeType;
 
-class IndexRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,7 +16,8 @@ class IndexRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'type' => ['required', new Enum(TransactionPurposeType::class)],
+            'title' => 'required|unique:payment_purposes'
         ];
     }
 
