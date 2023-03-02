@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('carpets', function (Blueprint $table) {
+        Schema::create('order_items', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('order_id');
-            $table->integer('longtitute');
-            $table->integer('latitute');
+            $table->integer('width');
+            $table->integer('height');
             $table->enum('type', ['thin', 'ordinary', 'special']);
             $table->enum('status', ['was_brought', 'washed', 'prepared'])->default('was_brought');
             $table->integer('surface');

@@ -28,7 +28,7 @@ class IncomeTransactionService
                 WalletJob::dispatch($model);
                 break;
             case 'debt collection':
-                $payer = Workman::find($request->payer_id);
+                $payer = User::find($request->payer_id);
                 $model->payer()->associate($payer);
                 $model->receiver()->associate($receiver);
                 $model->purpose()->associate($purpose);

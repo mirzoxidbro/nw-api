@@ -4,7 +4,6 @@ namespace Modules\ERP\Service\Transaction;
 
 use App\Models\User;
 use Modules\ERP\Jobs\WalletJob;
-use Modules\ERP\Entities\Workman;
 use Modules\ERP\Jobs\DebtHistoryJob;
 use Modules\ERP\Entities\Transaction;
 
@@ -20,7 +19,7 @@ class ExpenseTransactionService
 
         switch ($purpose->title) {
             case 'lending':
-                $receiver = Workman::find($request->receiver_id);
+                $receiver = User::find($request->receiver_id);
                 $model->payer()->associate($payer);
                 $model->receiver()->associate($receiver);
                 $model->purpose()->associate($purpose);
@@ -29,7 +28,7 @@ class ExpenseTransactionService
                 DebtHistoryJob::dispatch($model);
                 break;
             case 'debt collection':
-                $receiver = Workman::find($request->receiver_id);
+                $receiver = User::find($request->receiver_id);
                 $model->payer()->associate($payer);
                 $model->receiver()->associate($receiver);
                 $model->purpose()->associate($purpose);
@@ -37,7 +36,7 @@ class ExpenseTransactionService
                 WalletJob::dispatch($model);
                 break;
             case 'salary distribution' :
-                $receiver = Workman::find($request->receiver_id);
+                $receiver = User::find($request->receiver_id);
                 $model->payer()->associate($payer);
                 $model->receiver()->associate($receiver);
                 $model->purpose()->associate($purpose);
