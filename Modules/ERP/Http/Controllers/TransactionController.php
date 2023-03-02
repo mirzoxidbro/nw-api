@@ -5,8 +5,8 @@ namespace Modules\ERP\Http\Controllers;
 use Illuminate\Routing\Controller;
 use Modules\ERP\Entities\Transaction;
 use Modules\ERP\Http\Requests\Transaction\StoreRequest;
+use Modules\ERP\Service\Transaction\TransactionService;
 use Modules\ERP\Transformers\Transaction\TransactionResource;
-use Modules\ERP\Service\TransactionService;
 
 class TransactionController extends Controller
 {

@@ -17,12 +17,7 @@ use Modules\Core\Http\Controllers\UserController;
 |
 */
 
-Route::group(['prefix' => 'auth'], static function () {
-    Route::post('login', [AuthController::class, 'login']);
-    Route::post('refresh', [AuthController::class, 'refresh']);
-    Route::post('get-info', [AuthController::class, 'me']);
-    Route::post('register', [UserController::class, 'store']);
-});
+
 
 // Route::group(['middleware' => ['auth:sanctum']], function(){
 //     Route::apiResource('users', UserController::class);
@@ -37,13 +32,7 @@ Route::group(['prefix' => 'auth'], static function () {
         Route::post('delete/{roleId}', [RoleController::class, 'destroy']);
     });
 
-    Route::prefix('user')->group(function(){
-        Route::get('/', [UserController::class, 'index']);
-        Route::post('/{id}', [UserController::class, 'show']);
-        Route::post('/{id}', [UserController::class, 'update']);
-        Route::post('/profile/{id}', [UserController::class, 'profileUpdate']);
-        Route::delete('/{id}', [UserController::class, 'destroy']);
-    });
+
 
     Route::prefix('permissions')->group(function(){
         Route::get('/permissions', [PermissionController::class, 'getPermissions']);

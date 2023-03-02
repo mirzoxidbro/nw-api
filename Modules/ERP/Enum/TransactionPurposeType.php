@@ -18,7 +18,6 @@ enum TransactionPurposeType: string
         };
     }
 
-    //get value by message
     public static function getValueByMessage(string $message)
     {
         return match ($message) {

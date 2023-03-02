@@ -1,7 +1,8 @@
 <?php
 
-namespace Modules\Core\Http\Requests\User;
+namespace Modules\ERP\Http\Requests\User;
 
+use Modules\ERP\Enum\UserType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Enum;
 
