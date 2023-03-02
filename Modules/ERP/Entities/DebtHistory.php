@@ -9,7 +9,7 @@ class DebtHistory extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['workman_id', 'transaction_id', 'amount', 'description'];
+    protected $fillable = ['user_id', 'transaction_id', 'amount', 'description'];
     
     public function workman()
     {
