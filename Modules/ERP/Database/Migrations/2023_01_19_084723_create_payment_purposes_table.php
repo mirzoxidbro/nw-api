@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('payment_purposes', function (Blueprint $table) {
+        Schema::create('transaction_purposes', function (Blueprint $table) {
             $table->id();
             $table->enum('type', ['income', 'expense', 'transfer']);
             $table->string('title');
-            $table->boolean('canBeChanged')->default(1);
+            $table->boolean('canBeChanged')->default(0);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payment_purposes');
+        Schema::dropIfExists('transaction_purposes');
     }
 };
