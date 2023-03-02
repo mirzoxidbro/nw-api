@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('transaction_purposes', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['income', 'expense', 'transfer']);
+            $table->string('type');
             $table->string('title');
             $table->boolean('canBeChanged')->default(0);
             $table->timestamps();
