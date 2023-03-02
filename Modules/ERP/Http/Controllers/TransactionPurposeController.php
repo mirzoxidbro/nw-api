@@ -26,7 +26,7 @@ class TransactionPurposeController extends Controller
         if ($lists)
             return response()->successJson($lists);
         else
-            return response()->errorJson('Object not found', 404);
+            return response()->errorJson('Информация не найдена', 404);
     }
 
     public function store(StoreRequest $request)
