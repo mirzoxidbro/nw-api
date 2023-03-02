@@ -2,6 +2,7 @@
 
 namespace Modules\ERP\Entities;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,13 +13,12 @@ class Attendace extends Model
 {
     use HasFactory;
 
-    protected $with = ['workers'];
 
     protected $fillable = ['date'];
     
-    public function workers(): BelongsToMany
+    public function users(): BelongsToMany
     {
-        return $this->belongsToMany(Workman::class, 'attendance_worker', 'attendance_id', 'worker_id');
+        return $this->belongsToMany(User::class, 'attendance_user', 'attendance_id', 'user_id');
     }
 
     protected function updatedAt(): Attribute

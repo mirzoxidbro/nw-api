@@ -15,7 +15,7 @@ class UpdateAttendanceRequest extends FormRequest
     {
         return [
             'date' => 'required|date',
-            'workers' => 'required|array'
+            'users' => 'required|array'
         ];
     }
 
