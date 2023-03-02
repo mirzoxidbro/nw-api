@@ -3,7 +3,7 @@
 namespace Modules\ERP\Service\Transaction;
 
 use Modules\Core\Service\BaseService;
-use Modules\ERP\Entities\PaymentPurpose;
+use Modules\ERP\Entities\TransactionPurpose;
 use Modules\ERP\Repository\TransactionRepository;
 
 class TransactionService extends BaseService
@@ -16,7 +16,7 @@ class TransactionService extends BaseService
 
     public function create($params)
     {
-        $purpose = PaymentPurpose::findOrFail($params->purpose_id);
+        $purpose = TransactionPurpose::findOrFail($params->purpose_id);
         
             switch ($purpose->type) {
                 case 'income':
