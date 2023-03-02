@@ -55,13 +55,6 @@ Route::group(['prefix' => 'erp/v1'], static function () {
         //     Route::delete('/{carpet}', [CarpetController::class, 'delete']);
         // });`
     
-    Route::prefix('worker')->group(function(){
-        Route::get('/', [WorkmanController::class, 'index']);
-        Route::post('/', [WorkmanController::class, 'store']);
-        Route::get('/{worker}', [WorkmanController::class, 'show']);
-        Route::put('/{worker}', [WorkmanController::class, 'update']);
-        Route::delete('/{worker}', [WorkmanController::class, 'delete']);
-    });
     
     Route::prefix('attendance')->group(function(){
         Route::get('/', [AttendanceController::class, 'index']);
