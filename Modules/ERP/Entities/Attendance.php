@@ -16,7 +16,7 @@ class Attendance extends Model
 
     protected $fillable = ['date'];
     
-    public function users(): BelongsToMany
+    public function users():BelongsToMany
     {
         return $this->belongsToMany(User::class, 'attendance_user', 'attendance_id', 'user_id');
     }

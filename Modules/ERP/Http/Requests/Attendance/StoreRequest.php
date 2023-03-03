@@ -14,7 +14,8 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'date' => 'required|date',
+            'users' => 'required|array|exists:users,id'
         ];
     }
 

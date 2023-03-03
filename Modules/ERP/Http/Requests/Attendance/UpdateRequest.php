@@ -14,7 +14,8 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'date' => 'required|date',
+            'users' => 'required|array'
         ];
     }
 

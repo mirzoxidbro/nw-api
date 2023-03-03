@@ -11,4 +11,4 @@ class AttendanceRepository extends BaseRepository
     {
         $this->entity = $entity;
     }
-}
+}   

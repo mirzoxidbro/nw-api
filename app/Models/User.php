@@ -4,9 +4,11 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Modules\ERP\Entities\Attendance;
 use Modules\ERP\Entities\Order;
 use Modules\ERP\Entities\Wallet;
 use Spatie\Permission\Traits\HasRoles;
@@ -58,6 +60,11 @@ class User extends Authenticatable
     public function wallet()
     {
         return $this->hasOne(Wallet::class);
+    }
+
+    public function attendance():BelongsToMany
+    {
+        return $this->belongsToMany(Attendance::class,'attendance_user', 'user_id', 'attendance_id');
     }
 
 }

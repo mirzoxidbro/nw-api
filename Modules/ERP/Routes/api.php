@@ -1,15 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\ERP\Http\Controllers\AttendanceController;
+use Modules\ERP\Http\Controllers\UserController;
 use Modules\ERP\Http\Controllers\AuthController;
-use Modules\ERP\Http\Controllers\DebtHistoryController;
 use Modules\ERP\Http\Controllers\OrderController;
+use Modules\ERP\Http\Controllers\WalletController;
+use Modules\ERP\Http\Controllers\AttendanceController;
+use Modules\ERP\Http\Controllers\DebtHistoryController;
 use Modules\ERP\Http\Controllers\TransactionController;
 use Modules\ERP\Http\Controllers\TransactionPurposeController;
-use Modules\ERP\Http\Controllers\UserController;
-use Modules\ERP\Http\Controllers\WalletController;
-use Modules\ERP\Http\Controllers\WorkmanController;
 
 /*
 |--------------------------------------------------------------------------

@@ -3,49 +3,70 @@
 namespace Modules\ERP\Http\Controllers;
 
 use Illuminate\Routing\Controller;
+use Modules\ERP\Http\Requests\Attendance\IndexRequest;
 use Modules\ERP\Http\UseCases\Attendance\GetAttendanceUseCase;
 use Modules\ERP\Http\UseCases\Attendance\ShowAttendanceUseCase;
 use Modules\ERP\Http\UseCases\Attendance\StoreAttendanceUseCase;
 use Modules\ERP\Http\Requests\Attendance\StoreAttendanceRequest;
+use Modules\ERP\Http\Requests\Attendance\StoreRequest;
 use Modules\ERP\Http\Requests\Attendance\UpdateAttendanceRequest;
+use Modules\ERP\Http\Requests\Attendance\UpdateRequest;
 use Modules\ERP\Http\UseCases\Attendance\DeleteAttendanceUseCase;
 use Modules\ERP\Http\UseCases\Attendance\UpdateAttendanceUseCase;
+use Modules\ERP\Service\Attendance\AttendanceService;
 
 class AttendanceController extends Controller
 {
-    public function index(GetAttendanceUseCase $useCase)
+    public $service;
+    public function __construct(AttendanceService $service)
     {
-        $data = $useCase->execute();
-
-        return response()->json(['data' => $data]);
+        $this->service = $service;
     }
 
-    public function store(StoreAttendanceRequest $request, StoreAttendanceUseCase $useCase)
+    public function index(IndexRequest $request)
     {
-        $data = $useCase->execute($request->validated());
+        $params = $request->validated();
+        $lists = $this->service->get($params);
 
-        return response()->json(['data' => $data]);
+        if ($lists)
+            return response()->successJson($lists);
+        else
+            return response()->errorJson('Object not found', 404);
     }
 
-    public function update(UpdateAttendanceRequest $request, UpdateAttendanceUseCase $useCase, int $id)
+    public function store(StoreRequest $request)
     {
-        $data = $useCase->execute($request->validated(), $id);
-
-        return response()->json(['data' => $data]);
-
+        $params = $request->validated();
+        $model = $this->service->create($params);
+        return response()->successJson($model);
     }
 
-    public function show(ShowAttendanceUseCase $useCase, int $id)
+    public function show(int $id)
     {
-        $data = $useCase->execute($id);
-
-        return response()->json(['data' => $data]);
+        $user = $this->service->show($id);
+        if ($user)
+            return response()->successJson($user);
+        else
+            return response()->errorJson('Object not found', 404);
     }
 
-    public function delete(DeleteAttendanceUseCase $useCase, int $id)
+    public function update(UpdateRequest $request, int $id)
     {
-        $useCase->execute($id);
+        $params = $request->validated();
+        $model = $this->service->edit($params, $id);
+        if ($model)
+            return response()->successJson($model);
+        else
+            return response()->errorJson('Object not found', 404);
+    }
 
-        return response()->json(['message' => 'deleted successfully']);
+    public function delete(int $id)
+    {
+        $model = $this->service->delete($id);
+        if ($model) {
+            return response()->successJson('Successfully deleted');
+        } else {
+            return response()->errorJson('Object not found', 404);
+        }
     }
 }

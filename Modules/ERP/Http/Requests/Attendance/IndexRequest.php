@@ -14,7 +14,11 @@ class IndexRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'sort_key' => 'nullable',
+            'sort_type' => 'required_with:sort_key',
+            'date' => 'nullable|date',
+            'page' => 'nullable|numeric',
+            'per_page' => 'nullable|numeric'
         ];
     }
 
