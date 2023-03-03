@@ -1,8 +1,11 @@
 <?php
 
-namespace Modules\ERP\Http\Requests\Order;
+namespace Modules\ERP\Http\Requests\OrderItem;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Enum;
+use Modules\ERP\Enum\CarpetStatus;
+use Modules\ERP\Enum\CarpetType;
 
 class IndexRequest extends FormRequest
 {
@@ -16,8 +19,8 @@ class IndexRequest extends FormRequest
         return [
             'sort_key' => 'nullable',
             'sort_type' => 'required_with:sort_key',
-            'location' => 'nullable|string',
-            'amount' => 'nullable|integer',
+            'status' => ['nullable', new Enum(CarpetStatus::class)],
+            'type' => ['nullable', new Enum(CarpetType::class)],
             'page' => 'nullable|numeric',
             'per_page' => 'nullable|numeric'
         ];

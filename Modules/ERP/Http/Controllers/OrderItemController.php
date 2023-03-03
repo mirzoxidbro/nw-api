@@ -2,19 +2,22 @@
 
 namespace Modules\ERP\Http\Controllers;
 
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\ERP\Http\Requests\Order\IndexRequest;
-use Modules\ERP\Http\Requests\Order\StoreRequest;
-use Modules\ERP\Http\Requests\Order\UpdateRequest;
-use Modules\ERP\Service\Order\OrderService;
+use Modules\ERP\Http\Requests\OrderItem\IndexRequest;
+use Modules\ERP\Http\Requests\OrderItem\StoreRequest;
+use Modules\ERP\Http\Requests\OrderItem\UpdateRequest;
+use Modules\ERP\Service\Order\OrderItemService;
 
-class OrderController extends Controller
+class OrderItemController extends Controller
 {
     public $service;
 
-    public function __construct(OrderService $service)
+    public function __construct(OrderItemService $service)
     {
         $this->service = $service;
+        
     }
 
     public function index(IndexRequest $request)
