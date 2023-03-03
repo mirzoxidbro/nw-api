@@ -3,10 +3,10 @@
 namespace Modules\ERP\Entities;
 
 use App\Models\User;
-use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Order extends Model
 {
@@ -19,9 +19,9 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function carpets()
+    public function order_items()
     {
-        return $this->hasMany(Carpet::class);
+        return $this->hasMany(OrderItem::class);
     }
 
  
