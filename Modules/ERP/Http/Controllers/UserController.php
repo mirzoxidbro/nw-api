@@ -33,7 +33,11 @@ class UserController extends Controller
     {
         $params = $request->validated();
         $model = $this->service->create($params);
-        return response()->successJson($model);
+        $token = $model->createToken('token')->plainTextToken;
+        return response()->json([
+            'user' => $model,
+            'token' => $token,
+        ]);
     }
 
     public function show(int $id)
