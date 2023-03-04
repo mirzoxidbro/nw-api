@@ -13,18 +13,4 @@ class WalletController extends Controller
         return Wallet::query()->with('user')->get();
     }
 
-    public function store(Request $request)
-    {
-        $wallet = new Wallet();
-        $wallet->user_id = $request->user_id;
-        $wallet->amount = 0;
-        $wallet->save();
-
-        return $wallet;
-    }
-
-    public function delete($id)
-    {
-        Wallet::findOrFail($id)->delete();
-    }
 }
