@@ -35,5 +35,44 @@ class PermissionCreate extends Command
         Permission::create(['name' => 'role update permission']);
         Permission::create(['name' => 'delete role']);
         Permission::create(['name' => 'get permissions']);
+
+        /**Attendance permission */
+        Permission::create(['name' => 'get attendance']);
+        Permission::create(['name' => 'create attendance']);
+        Permission::create(['name' => 'show attendance']);
+        Permission::create(['name' => 'update attendance']);
+        Permission::create(['name' => 'delete attendance']);
+
+        /**Debt history */
+        Permission::create(['name' => 'get debt history']); //qarzdorliklarni ko'rish
+
+        /**Wallet permisison */
+        Permission::create(['name' => 'get wallet']); //kuryerlarni xamyonidagi summani ko'rish
+
+        /**Order permission */
+        Permission::create(['name' => 'get orders']);
+        Permission::create(['name' => 'create orders']);
+        Permission::create(['name' => 'show orders']);
+        Permission::create(['name' => 'update orders']);
+        Permission::create(['name' => 'delete orders']);
+
+        /**Order item permission */
+        Permission::create(['name' => 'get order items']);
+        Permission::create(['name' => 'create order items']);
+        Permission::create(['name' => 'show order items']);
+        Permission::create(['name' => 'update order items']);
+        Permission::create(['name' => 'delete order items']);
+
+        /**Transaction permission */
+        Permission::create(['name' => 'get transactions']);
+        Permission::create(['name' => 'create transaction']);
+
+        /**Transaction purpose permission */
+        Permission::create(['name' => 'get transaction purposes']);
+        Permission::create(['name' => 'create transaction purposes']);
+        Permission::create(['name' => 'show transaction purposes']);
+        Permission::create(['name' => 'update transaction purposes']);
+        Permission::create(['name' => 'delete transaction purposes']);
+        
     }
 }
