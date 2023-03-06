@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Modules\ERP\Entities\TransactionPurpose;
 
-class PaymentPurposeSeeder extends Seeder
+class TransactionPurposeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -28,12 +28,6 @@ class PaymentPurposeSeeder extends Seeder
             'title' => 'debt collection', // qarz undirish
             'canBeChanged' => 0
         ]);
-
-        // PaymentPurpose::create([
-        //     'type' => 'income',
-        //     'title' => 'investment', //investitsiya olish
-        //     'canBeChanged' => 'false'
-        // ]);
 
         TransactionPurpose::create([
             'type' => 'expense',

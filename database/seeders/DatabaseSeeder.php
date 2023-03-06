@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Modules\ERP\Database\Seeders\PaymentPurposeSeeder;
+use Modules\ERP\Database\Seeders\TransactionPurposeSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call([
-            PaymentPurposeSeeder::class
+            TransactionPurposeSeeder::class
         ]);
     }
 }

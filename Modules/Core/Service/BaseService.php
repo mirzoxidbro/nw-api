@@ -50,7 +50,7 @@ class BaseService
     }
 
 
-    public function filter(Builder $query, $filter_fields, $params)
+    public function filter($query, $filter_fields, $params)
     {
         foreach ($filter_fields as $key => $item) {
             if (array_key_exists($key, $params) && $params[$key]) {
@@ -69,7 +69,7 @@ class BaseService
         return $query;
     }
 
-    public function sort($query, $sort_fields = null, array $params): Builder
+    public function sort($query, $sort_fields = null, array $params)
     {
         $key = 'id';
         $order = 'desc';
