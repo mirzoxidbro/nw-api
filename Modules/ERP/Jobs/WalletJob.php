@@ -6,9 +6,9 @@ use Illuminate\Bus\Queueable;
 use Modules\ERP\Entities\Wallet;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
-use Modules\ERP\Entities\PaymentPurpose;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Modules\ERP\Entities\TransactionPurpose;
 
 class WalletJob implements ShouldQueue
 {
@@ -31,7 +31,7 @@ class WalletJob implements ShouldQueue
      */
     public function handle()
     {
-        $purpose = PaymentPurpose::where('id', $this->model->purpose_id)->first();
+        $purpose = TransactionPurpose::where('id', $this->model->purpose_id)->first();
         $amount = $this->model->amount;
 
         if ($purpose->type == 'transfer') {

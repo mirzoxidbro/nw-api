@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\ERP\Http\Requests\Order;
+namespace Modules\ERP\Http\Requests\Transaction;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -16,9 +16,11 @@ class IndexRequest extends FormRequest
         return [
             'sort_key' => 'nullable',
             'sort_type' => 'required_with:sort_key',
-            'user_id' => 'nullable|numeric|exists:users,id',
-            'location' => 'nullable|string',
-            'amount' => 'nullable|integer',
+            'description' => 'nullable|string',
+            'purpose_type' => 'nullable|string',
+            'purpose_title' => 'nullable|string',
+            'receiver' => 'nullable|string',
+            'payer' => 'nullable|string',
             'page' => 'nullable|numeric',
             'per_page' => 'nullable|numeric'
         ];

@@ -4,6 +4,7 @@ namespace Modules\ERP\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Modules\ERP\Entities\Transaction;
+use Modules\ERP\Http\Requests\Transaction\IndexRequest;
 use Modules\ERP\Http\Requests\Transaction\StoreRequest;
 use Modules\ERP\Service\Transaction\TransactionService;
 use Modules\ERP\Transformers\Transaction\TransactionResource;
@@ -17,10 +18,10 @@ class TransactionController extends Controller
         $this->service = $service;
     }
 
-    public function alltransactions()
+    public function alltransactions(IndexRequest $request)
     {
-        $transaction = Transaction::query()->with('payer', 'receiver', 'purpose:id,type,title')->latest()->paginate(10);
-        return TransactionResource::collection($transaction)->resource;
+        $params = $request->validated();
+        return $this->service->getTransactions($params);
     }
 
     public function transaction(StoreRequest $request)

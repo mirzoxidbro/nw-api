@@ -13,7 +13,9 @@ class OrderService extends BaseService
         $this->repo = $repo;
 
         $this->filter_fields = [
-            'location' => ['type' => 'string']
+            'location' => ['type' => 'string'],
+            'amount' => ['type' => 'integer'],
+            'user_id' => ['type' => 'integer']
         ];
     }
 }

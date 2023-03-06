@@ -2,6 +2,7 @@
 
 namespace Modules\ERP\Http\Requests\Transaction;
 
+use Modules\ERP\Enum\TransactionPurposeType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Enum;
 
@@ -17,11 +18,10 @@ class StoreRequest extends FormRequest
         return [
             'receiver_id' => 'required_without:payer_id|integer',
             'payer_id' => 'required_without:receiver_id|integer',
-            'purpose_id' => 'required|numeric|exists:payment_purposes,id',
+            'purpose_id' => 'required|numeric|exists:transaction_purposes,id',
             'amount' => 'integer|required',
             'description' => 'nullable',
-            'type' => 'required'
-            // 'type' => ['required', new Enum(Factories::class)]
+            'type' => ['required', new Enum(TransactionPurposeType::class)]
         ];
     }
 

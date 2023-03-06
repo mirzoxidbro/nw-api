@@ -6,9 +6,9 @@ use Illuminate\Bus\Queueable;
 use Modules\ERP\Entities\DebtHistory;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
-use Modules\ERP\Entities\PaymentPurpose;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Modules\ERP\Entities\TransactionPurpose;
 
 class DebtHistoryJob implements ShouldQueue
 {
@@ -31,7 +31,7 @@ class DebtHistoryJob implements ShouldQueue
      */
     public function handle()
     {
-        $purpose = PaymentPurpose::query()->where('id', $this->model->purpose_id)->first();
+        $purpose = TransactionPurpose::query()->where('id', $this->model->purpose_id)->first();
         $transaction_id = $this->model->id;
         if ($purpose->title == 'lending') {
             $workman_id = $this->model->receiver_id;
