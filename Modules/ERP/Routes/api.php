@@ -4,9 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Modules\ERP\Http\Controllers\UserController;
 use Modules\ERP\Http\Controllers\AuthController;
 use Modules\ERP\Http\Controllers\OrderController;
-use Modules\ERP\Http\Controllers\WalletController;
 use Modules\ERP\Http\Controllers\AttendanceController;
-use Modules\ERP\Http\Controllers\DebtHistoryController;
 use Modules\ERP\Http\Controllers\OrderItemController;
 use Modules\ERP\Http\Controllers\TransactionController;
 use Modules\ERP\Http\Controllers\TransactionPurposeController;
@@ -21,15 +19,15 @@ use Modules\ERP\Http\Controllers\TransactionPurposeController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::group(['prefix' => 'erp/v1'], static function () {
+Route::group(['prefix' => 'auth'], static function () {
+    Route::post('login', [AuthController::class, 'login']);
+    Route::post('register', [UserController::class, 'store']);
+}); 
+Route::group(['prefix' => 'erp/v1', 'middleware' => 'auth:sanctum'], static function () {
 
     Route::group(['prefix' => 'auth'], static function () {
-        Route::post('login', [AuthController::class, 'login']);
-        Route::post('refresh', [AuthController::class, 'refresh']);
-        Route::post('get-info', [AuthController::class, 'me']);
-        Route::post('register', [UserController::class, 'store']);
-    });
+        Route::post('logout', [AuthController::class, 'logout']);
+    }); 
 
     Route::prefix('user')->group(function () {
         Route::get('/', [UserController::class, 'index']);
