@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('height');
             $table->enum('type', ['thin', 'ordinary', 'special']);
             $table->enum('status', ['was_brought', 'washed', 'prepared'])->default('was_brought');
-            $table->integer('surface');
+            $table->decimal('surface', 10, 2);
             $table->string('info')->nullable();
             $table->timestamps();
         });
