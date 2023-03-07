@@ -3,6 +3,7 @@
 namespace Modules\ERP\Http\Controllers;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Hash;
 use Modules\ERP\Service\User\UserService;
 use Modules\ERP\Http\Requests\User\IndexRequest;
 use Modules\ERP\Http\Requests\User\StoreRequest;
@@ -32,6 +33,7 @@ class UserController extends Controller
     public function store(StoreRequest $request)
     {
         $params = $request->validated();
+        $params['password'] = Hash::make($request->password);
         $model = $this->service->create($params);
         $token = $model->createToken('token')->plainTextToken;
         return response()->json([

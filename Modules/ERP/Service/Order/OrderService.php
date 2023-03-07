@@ -14,8 +14,8 @@ class OrderService extends BaseService
 
         $this->filter_fields = [
             'location' => ['type' => 'string'],
-            'amount' => ['type' => 'integer'],
-            'user_id' => ['type' => 'integer']
+            'amount' => ['type' => 'number'],
+            'user_id' => ['type' => 'number']
         ];
     }
 }
