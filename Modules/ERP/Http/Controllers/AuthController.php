@@ -2,29 +2,26 @@
 
 namespace Modules\ERP\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function __construct()
+    public function login(Request $request)
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
-    }
-
-    public function login()
-    {
-        $credentials = request(['username', 'password']);
-
-        if (!$token = auth()->attempt($credentials)) {
-            return response()->errorJson(['error' => 'Unauthorized'], 401);
+        $credentials = $request->only('username', 'password');
+        if(Auth::attempt($credentials)){
+            $user = auth()->user();
+            $token =  $user->createToken('MyApp')->plainTextToken;
+            return response()->json([
+                $token,
+                $user
+            ]);
+        } 
+        else{ 
+            return response()->json(['error'=>'Unauthorized']);
         }
-
-        if (auth()->user()->status == 'inactive') {
-            return response()->errorJson("User isn't active", 401);
-        }
-
-        return $this->respondWithToken($token);
     }
 
     public function me()
@@ -34,23 +31,7 @@ class AuthController extends Controller
 
     public function logout()
     {
-        Auth::logout();
-
-        return response()->successJson(['message' => 'Successfully logged out']);
+        auth()->user()->tokens()->delete();
+        return response()->successJson('Logged out');
     }
-
-    public function refresh()
-    {
-        return $this->respondWithToken(auth()->refresh());
-    }
-
-    protected function respondWithToken($token)
-    {
-        return response()->successJson([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth('api')->factory()->getTTL() * 60
-        ]);
-    }
-
 }
