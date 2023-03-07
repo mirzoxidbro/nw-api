@@ -18,7 +18,7 @@ class OrderResource extends JsonResource
             'id' => $this->id,
             'location' => $this->location,
             'amount' => $this->amount,
-            'user' => $this->user->name
+            'user' => $this->user->username
         ];
     }
 }

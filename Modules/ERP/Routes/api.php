@@ -42,7 +42,7 @@ Route::group(['prefix' => 'erp/v1', 'middleware' => 'auth:sanctum'], static func
         Route::post('/', [OrderController::class, 'store']);
         Route::get('/{order}', [OrderController::class, 'show']);
         Route::put('/{order}', [OrderController::class, 'update']);
-        Route::delete('/{order}', [OrderController::class, 'delete']);
+        Route::delete('/{order}', [OrderController::class, 'destroy']);
     });
 
     Route::prefix('orderitem')->group(function () {
@@ -50,7 +50,7 @@ Route::group(['prefix' => 'erp/v1', 'middleware' => 'auth:sanctum'], static func
         Route::post('/', [OrderItemController::class, 'store']);
         Route::get('/{orderitem}', [OrderItemController::class, 'show']);
         Route::put('/{orderitem}', [OrderItemController::class, 'update']);
-        Route::delete('/{orderitem}', [OrderItemController::class, 'delete']);
+        Route::delete('/{orderitem}', [OrderItemController::class, 'destroy']);
     });
 
 

@@ -9,6 +9,7 @@ use Modules\ERP\Http\Requests\OrderItem\IndexRequest;
 use Modules\ERP\Http\Requests\OrderItem\StoreRequest;
 use Modules\ERP\Http\Requests\OrderItem\UpdateRequest;
 use Modules\ERP\Service\Order\OrderItemService;
+use Modules\ERP\Transformers\OrderItem\OrderItemResource;
 
 class OrderItemController extends Controller
 {
@@ -23,7 +24,7 @@ class OrderItemController extends Controller
     public function index(IndexRequest $request)
     {
         $params = $request->validated();
-        $lists = $this->service->get($params);
+        $lists = OrderItemResource::collection($this->service->get($params));
 
         if ($lists)
             return response()->successJson($lists);
@@ -34,7 +35,8 @@ class OrderItemController extends Controller
     public function store(StoreRequest $request)
     {
         $params = $request->validated();
-        $data = $this->service->create($params);
+        $params['surface'] = $params['width'] * $params['height'];
+        $data = new OrderItemResource($this->service->create($params));
         if ($data)
             return response()->successJson($data);
         else
@@ -43,7 +45,7 @@ class OrderItemController extends Controller
 
     public function show(int $id)
     {
-        $data = $this->service->show($id);
+        $data = new OrderItemResource($this->service->show($id));
         if ($data)
             return response()->successJson($data);
         else
@@ -53,7 +55,8 @@ class OrderItemController extends Controller
     public function update(UpdateRequest $request, int $id)
     {
         $params = $request->validated();
-        $data = $this->service->edit($params, $id);
+        
+        $data = new OrderItemResource($this->service->edit($params, $id));
         if ($data)
             return response()->successJson($data);
         else

@@ -7,6 +7,7 @@ use Modules\ERP\Http\Requests\Order\IndexRequest;
 use Modules\ERP\Http\Requests\Order\StoreRequest;
 use Modules\ERP\Http\Requests\Order\UpdateRequest;
 use Modules\ERP\Service\Order\OrderService;
+use Modules\ERP\Transformers\Order\OrderResource;
 
 class OrderController extends Controller
 {
@@ -20,7 +21,7 @@ class OrderController extends Controller
     public function index(IndexRequest $request)
     {
         $params = $request->validated();
-        $lists = $this->service->get($params);
+        $lists = OrderResource::collection($this->service->get($params));
 
         if ($lists)
             return response()->successJson($lists);

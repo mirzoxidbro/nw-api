@@ -17,15 +17,4 @@ class OrderItemService extends BaseService
             'type' => ['type' => 'string']
         ];
     }
-
-    public function create($params)
-    {
-        $params['surface'] = $params['width'] * $params['height'];
-        dd($params);
-    }
-
-    public function edit($params, $id)
-    {
-        
-    }
 }
