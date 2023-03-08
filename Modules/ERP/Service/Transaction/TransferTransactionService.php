@@ -8,13 +8,13 @@ use Modules\ERP\Entities\Transaction;
 
 class TransferTransactionService
 {
-    public static function TransferTransaction($request, $purpose)
+    public static function TransferTransaction($params, $purpose)
     {
         $model = new Transaction();
-        $receiver = User::findOrFail($request->receiver_id);
-        $payer = User::findOrFail($request->payer_id);
-        $model->amount = $request->amount;
-        $model->description = $request->description;
+        $receiver = auth()->user();
+        $payer = User::findOrFail($params['payer_id']);
+        $model->amount = $params['amount'];
+        $model->description = $params['description'] ? $params['description'] : null;
         $model->payer()->associate($payer);
         $model->receiver()->associate($receiver);
         $model->purpose()->associate($purpose);

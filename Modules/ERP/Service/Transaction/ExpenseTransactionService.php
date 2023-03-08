@@ -10,16 +10,16 @@ use Modules\ERP\Entities\Transaction;
 class ExpenseTransactionService
 {
 
-    public static function ExpenseTransaction($request, $purpose)
+    public static function ExpenseTransaction($params, $purpose)
     {
         $model = new Transaction();
-        $model->amount = $request->amount;
-        $model->description = $request->description;
-        $payer = User::find($request->payer_id);
+        $model->amount = $params['amount'];
+        $model->description = $params['description'];
+        $payer = auth()->user();
 
         switch ($purpose->title) {
             case 'lending':
-                $receiver = User::find($request->receiver_id);
+                $receiver = User::find($params['receiver_id']);
                 $model->payer()->associate($payer);
                 $model->receiver()->associate($receiver);
                 $model->purpose()->associate($purpose);
@@ -28,7 +28,7 @@ class ExpenseTransactionService
                 DebtHistoryJob::dispatch($model);
                 break;
             case 'debt collection':
-                $receiver = User::find($request->receiver_id);
+                $receiver = User::find($params['receiver_id']);
                 $model->payer()->associate($payer);
                 $model->receiver()->associate($receiver);
                 $model->purpose()->associate($purpose);
@@ -36,7 +36,7 @@ class ExpenseTransactionService
                 WalletJob::dispatch($model);
                 break;
             case 'salary distribution' :
-                $receiver = User::find($request->receiver_id);
+                $receiver = User::find($params['receiver_id']);
                 $model->payer()->associate($payer);
                 $model->receiver()->associate($receiver);
                 $model->purpose()->associate($purpose);

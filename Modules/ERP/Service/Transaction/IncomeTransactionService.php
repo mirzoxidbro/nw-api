@@ -14,8 +14,8 @@ class IncomeTransactionService
     {
         $model = new Transaction();
         $model->amount = $params['amount'];
-        $model->description = $params['description'];
-        $receiver = User::find($params['receiver_id']);
+        $model->description = $params['description'] ?? null;;
+        $receiver = auth()->user();
 
         switch ($purpose->title) {
             case 'from the order':

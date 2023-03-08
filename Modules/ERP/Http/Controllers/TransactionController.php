@@ -18,7 +18,7 @@ class TransactionController extends Controller
         $this->service = $service;
     }
 
-    public function alltransactions(IndexRequest $request)
+    public function index(IndexRequest $request)
     {
         $params = $request->validated();
         return $this->service->getTransactions($params);

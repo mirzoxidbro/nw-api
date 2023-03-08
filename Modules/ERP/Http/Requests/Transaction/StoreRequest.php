@@ -15,13 +15,13 @@ class StoreRequest extends FormRequest
      */
     public function rules()
     {
+        // dd($this);
         return [
             'receiver_id' => 'required_without:payer_id|integer',
             'payer_id' => 'required_without:receiver_id|integer',
             'purpose_id' => 'required|numeric|exists:transaction_purposes,id',
             'amount' => 'integer|required',
-            'description' => 'nullable',
-            'type' => ['required', new Enum(TransactionPurposeType::class)]
+            'description' => 'string|nullable',
         ];
     }
 
