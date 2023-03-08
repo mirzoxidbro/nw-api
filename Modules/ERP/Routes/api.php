@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\ERP\Entities\DailyWorkVolume;
 use Modules\ERP\Http\Controllers\UserController;
 use Modules\ERP\Http\Controllers\AuthController;
 use Modules\ERP\Http\Controllers\OrderController;
 use Modules\ERP\Http\Controllers\AttendanceController;
+use Modules\ERP\Http\Controllers\DailyWorkVolumeController;
 use Modules\ERP\Http\Controllers\DebtHistoryController;
 use Modules\ERP\Http\Controllers\OrderItemController;
 use Modules\ERP\Http\Controllers\TransactionController;
@@ -82,6 +84,10 @@ Route::group(['prefix' => 'erp/v1', 'middleware' => 'auth:sanctum'], static func
 
     Route::prefix('wallet')->group(function () {
         Route::get('/', [WalletController::class, 'index']);
+    });
+
+    Route::prefix('workvolume')->group(function () {
+        Route::get('/', [DailyWorkVolumeController::class, 'index']);
     });
 
     Route::prefix('bebthistory')->group(function () {

@@ -12,8 +12,55 @@
 				{
 					"name": "transaction for expense",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "receiver_id",
+									"value": "34",
+									"type": "text"
+								},
+								{
+									"key": "purpose_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "5600",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Ishchiga oylik to'landi",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/erp/v1/transactions/transaction",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"transactions",
+								"transaction"
+							]
+						}
 					},
 					"response": [
 						{
@@ -127,14 +174,39 @@
 				{
 					"name": "transaction for transfer",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
-									"key": "",
-									"value": "",
+									"key": "payer_id",
+									"value": "33",
+									"type": "text"
+								},
+								{
+									"key": "purpose_id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "170000",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "buyurtmalardan olingan pullarni kuryerlar kassaga topshirishdi",
 									"type": "text"
 								}
 							]
@@ -394,24 +466,29 @@
 					]
 				},
 				{
-					"name": "expenses",
+					"name": "transactions",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/transactions/alltransactions",
-							"protocol": "http",
+							"raw": "{{base_url}}/erp/v1/transactions",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{base_url}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
-								"transactions",
-								"alltransactions"
+								"erp",
+								"v1",
+								"transactions"
 							]
 						}
 					},
@@ -486,8 +563,30 @@
 				{
 					"name": "daily statistics",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/erp/v1/transactions/dailystatistics",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"transactions",
+								"dailystatistics"
+							]
+						}
 					},
 					"response": [
 						{
@@ -561,8 +660,30 @@
 				{
 					"name": "monthly statistics",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/erp/v1/transactions/monthlystatistics",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"transactions",
+								"monthlystatistics"
+							]
+						}
 					},
 					"response": [
 						{
@@ -636,8 +757,30 @@
 				{
 					"name": "yearly statistics",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/erp/v1/transactions/yearlystatistics",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"transactions",
+								"yearlystatistics"
+							]
+						}
 					},
 					"response": [
 						{
@@ -716,20 +859,24 @@
 				{
 					"name": "list",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/erp/v1/order",
-							"protocol": "http",
+							"raw": "{{base_url}}/erp/v1/order",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{base_url}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
 								"erp",
 								"v1",
 								"order"
@@ -742,6 +889,16 @@
 				{
 					"name": "store",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -765,17 +922,11 @@
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/erp/v1/order",
-							"protocol": "http",
+							"raw": "{{base_url}}/erp/v1/order",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{base_url}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
 								"erp",
 								"v1",
 								"order"
@@ -865,20 +1016,24 @@
 				{
 					"name": "index",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/erp/v1/orderitem",
-							"protocol": "http",
+							"raw": "{{base_url}}/erp/v1/orderitem",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{base_url}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
 								"erp",
 								"v1",
 								"orderitem"
@@ -890,20 +1045,60 @@
 				{
 					"name": "store",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "order_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "width",
+									"value": "2.09",
+									"type": "text"
+								},
+								{
+									"key": "height",
+									"value": "3.01",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "received",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/erp/v1/orderitem",
-							"protocol": "http",
+							"raw": "{{base_url}}/erp/v1/orderitem",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{base_url}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
 								"erp",
 								"v1",
 								"orderitem"
@@ -915,8 +1110,30 @@
 				{
 					"name": "show",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/erp/v1/orderitem/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"orderitem",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
@@ -940,8 +1157,14 @@
 							"urlencoded": [
 								{
 									"key": "status",
-									"value": "prepared",
+									"value": "washed",
 									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "thin",
+									"type": "text",
+									"disabled": true
 								}
 							]
 						},
@@ -998,21 +1221,27 @@
 				{
 					"name": "index",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/debthistory",
-							"protocol": "http",
+							"raw": "{{base_url}}/erp/v1/bebthistory",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{base_url}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
-								"debthistory"
+								"erp",
+								"v1",
+								"bebthistory"
 							]
 						}
 					},
@@ -1026,6 +1255,16 @@
 				{
 					"name": "store",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -1038,18 +1277,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/payment_purpose",
-							"protocol": "http",
+							"raw": "{{base_url}}/erp/v1/transaction_purpose",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{base_url}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
-								"payment_purpose"
+								"erp",
+								"v1",
+								"transaction_purpose"
 							]
 						}
 					},
@@ -1058,8 +1293,39 @@
 				{
 					"name": "income",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/erp/v1/transaction_purpose?type=income&id=desc",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"transaction_purpose"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "income"
+								},
+								{
+									"key": "id",
+									"value": "desc"
+								}
+							]
+						}
 					},
 					"response": [
 						{
@@ -1142,8 +1408,39 @@
 				{
 					"name": "expense",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/erp/v1/transaction_purpose?type=expense&id=desc",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"transaction_purpose"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "expense"
+								},
+								{
+									"key": "id",
+									"value": "desc"
+								}
+							]
+						}
 					},
 					"response": [
 						{
@@ -1226,8 +1523,39 @@
 				{
 					"name": "transfer",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/erp/v1/transaction_purpose?type=transfer&id=desc",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"transaction_purpose"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "transfer"
+								},
+								{
+									"key": "id",
+									"value": "desc"
+								}
+							]
+						}
 					},
 					"response": [
 						{
@@ -1315,8 +1643,29 @@
 				{
 					"name": "index",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/erp/v1/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"user"
+							]
+						}
 					},
 					"response": []
 				},
@@ -1327,7 +1676,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"first_name\": \"Mirzoxid\",\r\n    \"last_name\": \"Adxamjanov\",\r\n    \"username\": \"username\",\r\n    \"password\": \"password\",\r\n    \"phone\": 998997256657,\r\n    \"birthday\": \"2001-03-22\",\r\n    \"position\": \"user\",\r\n    \"gender\" : 1\r\n}",
+							"raw": "{\r\n    \"first_name\": \"Mirzoxid\",\r\n    \"last_name\": \"Adxamjanov\",\r\n    \"username\": \"username1\",\r\n    \"password\": \"password1\",\r\n    \"phone\": 998997256657,\r\n    \"birthday\": \"2001-03-22\",\r\n    \"position\": \"user\",\r\n    \"gender\" : 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1335,17 +1684,11 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/erp/v1/auth/register",
-							"protocol": "http",
+							"raw": "{{base_url}}/erp/v1/auth/register",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{base_url}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
 								"erp",
 								"v1",
 								"auth",
@@ -1436,32 +1779,6 @@
 							"body": "{\n    \"user\": {\n        \"first_name\": \"Mirzoxid\",\n        \"last_name\": \"Adxamjanov\",\n        \"username\": \"username\",\n        \"position\": \"user\",\n        \"phone\": 998997256657,\n        \"birthday\": \"2001-03-22\",\n        \"gender\": 1,\n        \"updated_at\": \"2023-03-07T04:21:01.000000Z\",\n        \"created_at\": \"2023-03-07T04:21:01.000000Z\",\n        \"id\": 34\n    },\n    \"token\": \"2|15NSDfFPaEEPjUxmRVZ2YidXNB4aHLakEFs5tXh2\"\n}"
 						}
 					]
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/erp/v1/user/20",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"erp",
-								"v1",
-								"user",
-								"20"
-							]
-						}
-					},
-					"response": []
 				},
 				{
 					"name": "profile update",
@@ -1601,6 +1918,37 @@
 							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 35,\n        \"first_name\": \"Mirzoxid\",\n        \"last_name\": \"Adxamjanov\",\n        \"username\": \"anotheruser\",\n        \"position\": \"user\",\n        \"status\": 1,\n        \"phone\": \"998997256657\",\n        \"birthday\": \"2001-03-22\",\n        \"gender\": 1,\n        \"created_at\": \"2023-03-07T05:34:52.000000Z\",\n        \"updated_at\": \"2023-03-07T07:41:00.000000Z\"\n    },\n    \"message\": \"ok\"\n}"
 						}
 					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/erp/v1/user/19",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"erp",
+								"v1",
+								"user",
+								"19"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -1623,14 +1971,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/erp/v1/bebthistory",
+							"raw": "{{base_url}}/erp/v1/wallet",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"erp",
 								"v1",
-								"bebthistory"
+								"wallet"
 							]
 						}
 					},
@@ -1651,30 +1999,22 @@
 							"formdata": [
 								{
 									"key": "username",
-									"value": "joker",
+									"value": "username1",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "joker",
+									"value": "password1",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/erp/v1/auth/login",
-							"protocol": "http",
+							"raw": "{{base_url}}/auth/login",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{base_url}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
-								"erp",
-								"v1",
 								"auth",
 								"login"
 							]
@@ -1728,14 +2068,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/erp/v1/user/get-info",
+							"raw": "{{base_url}}/erp/v1/auth/get-info",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"erp",
 								"v1",
-								"user",
+								"auth",
 								"get-info"
 							]
 						}
@@ -1750,14 +2090,44 @@
 				{
 					"name": "list",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/roles/getRoles",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"roles",
+								"getRoles"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "store",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -1807,13 +2177,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/roles/getPermission",
+							"raw": "{{base_url}}/roles/getPermission/1",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"roles",
-								"getPermission"
+								"getPermission",
+								"1"
 							]
 						}
 					},
@@ -1894,28 +2265,78 @@
 				{
 					"name": "index",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/erp/v1/attendance",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"attendance"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "store",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "date",
+									"value": "2023-03-05",
+									"type": "text"
+								},
+								{
+									"key": "users[0]",
+									"value": "33",
+									"type": "text"
+								},
+								{
+									"key": "users[1]",
+									"value": "34",
+									"type": "text"
+								},
+								{
+									"key": "users[2]",
+									"value": "35",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/erp/v1/attendance",
-							"protocol": "http",
+							"raw": "{{base_url}}/erp/v1/attendance",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{base_url}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
 								"erp",
 								"v1",
 								"attendance"
@@ -1927,20 +2348,24 @@
 				{
 					"name": "show",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/erp/v1/attendance/1",
-							"protocol": "http",
+							"raw": "{{base_url}}/erp/v1/attendance/1",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{base_url}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
 								"erp",
 								"v1",
 								"attendance",
@@ -1953,20 +2378,24 @@
 				{
 					"name": "update",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/erp/v1/attendance/1",
-							"protocol": "http",
+							"raw": "{{base_url}}/erp/v1/attendance/1",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{base_url}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
 								"erp",
 								"v1",
 								"attendance",
@@ -1979,24 +2408,28 @@
 				{
 					"name": "delete",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/erp/v1/attendance/1",
-							"protocol": "http",
+							"raw": "{{base_url}}/erp/v1/attendance/6",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{base_url}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
 								"erp",
 								"v1",
 								"attendance",
-								"1"
+								"6"
 							]
 						}
 					},
@@ -2008,7 +2441,101 @@
 			"name": "permissions",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/permissions/permissions",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"permissions",
+						"permissions"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "permissions",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/permissions/permissions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"permissions",
+								"permissions"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Mar 2023 10:03:24 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Mar 2023 10:03:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.3"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"get roles\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:38.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:38.000000Z\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"store new role\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:38.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:38.000000Z\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"role get permission\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:38.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:38.000000Z\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"role update permission\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:38.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:38.000000Z\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"delete role\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:38.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:38.000000Z\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"get permissions\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:38.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:38.000000Z\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"get attendance\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:38.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:38.000000Z\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"create attendance\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:38.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:38.000000Z\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"show attendance\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:38.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:38.000000Z\"\n    },\n    {\n        \"id\": 10,\n        \"name\": \"update attendance\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:38.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:38.000000Z\"\n    },\n    {\n        \"id\": 11,\n        \"name\": \"delete attendance\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 12,\n        \"name\": \"get debt history\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 13,\n        \"name\": \"get wallet\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 14,\n        \"name\": \"get orders\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 15,\n        \"name\": \"create orders\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 16,\n        \"name\": \"show orders\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 17,\n        \"name\": \"update orders\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 18,\n        \"name\": \"delete orders\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 19,\n        \"name\": \"get order items\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 20,\n        \"name\": \"create order items\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 21,\n        \"name\": \"show order items\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 22,\n        \"name\": \"update order items\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 23,\n        \"name\": \"delete order items\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 24,\n        \"name\": \"get transactions\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 25,\n        \"name\": \"create transaction\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 26,\n        \"name\": \"get transaction purposes\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 27,\n        \"name\": \"create transaction purposes\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 28,\n        \"name\": \"show transaction purposes\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 29,\n        \"name\": \"update transaction purposes\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    },\n    {\n        \"id\": 30,\n        \"name\": \"delete transaction purposes\",\n        \"guard_name\": \"web\",\n        \"created_at\": \"2023-03-08T08:48:39.000000Z\",\n        \"updated_at\": \"2023-03-08T08:48:39.000000Z\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "daily work volue",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/erp/v1/workvolume",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"erp",
+						"v1",
+						"workvolume"
+					]
+				}
 			},
 			"response": []
 		}
