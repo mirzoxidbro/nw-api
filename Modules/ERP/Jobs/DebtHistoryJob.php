@@ -34,19 +34,19 @@ class DebtHistoryJob implements ShouldQueue
         $purpose = TransactionPurpose::query()->where('id', $this->model->purpose_id)->first();
         $transaction_id = $this->model->id;
         if ($purpose->title == 'lending') {
-            $workman_id = $this->model->receiver_id;
-            $debt_history = DebtHistory::query()->where('workman_id', $workman_id)->latest()->first();
+            $payer_id = $this->model->receiver_id;
+            $debt_history = DebtHistory::query()->where('user_id', $payer_id)->latest()->first();
             DebtHistory::create([
-                'workman_id' => $workman_id,
+                'user_id' => $payer_id,
                 'transaction_id' => $transaction_id,
                 'amount' => $debt_history->amount + $this->model->amount,
                 'description' => $this->model->description
             ]);
         } elseif ($purpose->title == 'debt collection') {
-            $workman_id = $this->model->payer_id;
-            $debt_history = DebtHistory::query()->where('workman_id', $workman_id)->latest()->first();
+            $payer_id = $this->model->payer_id;
+            $debt_history = DebtHistory::query()->where('user_id', $payer_id)->latest()->first();
             DebtHistory::create([
-                'workman_id' => $workman_id,
+                'user_id' => $payer_id,
                 'transaction_id' => $transaction_id,
                 'amount' => $debt_history->amount - $this->model->amount,
                 'description' => $this->model->description

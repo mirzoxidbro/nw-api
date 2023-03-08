@@ -3,8 +3,6 @@
 namespace Modules\ERP\Service\User;
 
 use Modules\Core\Service\BaseService;
-use Modules\ERP\Entities\DebtHistory;
-use Modules\ERP\Entities\Wallet;
 use Modules\ERP\Events\UserCreated;
 use Modules\ERP\Repository\UserRepository;
 
@@ -18,6 +16,10 @@ class UserService extends BaseService
 
         $this->filter_fields = [
             'username' => ['type' => 'string']
+        ];
+
+        $this->relation = [
+            'wallet', 'debtHistory'
         ];
     }
 

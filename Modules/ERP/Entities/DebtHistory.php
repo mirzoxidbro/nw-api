@@ -2,6 +2,7 @@
 
 namespace Modules\ERP\Entities;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -11,9 +12,9 @@ class DebtHistory extends Model
 
     protected $fillable = ['user_id', 'transaction_id', 'amount', 'description'];
     
-    public function workman()
+    public function user()
     {
-        return $this->belongsTo(Workman::class);
+        return $this->belongsTo(User::class);
     }
 
     public function transaction()

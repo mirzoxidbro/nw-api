@@ -5,9 +5,11 @@ use Modules\ERP\Http\Controllers\UserController;
 use Modules\ERP\Http\Controllers\AuthController;
 use Modules\ERP\Http\Controllers\OrderController;
 use Modules\ERP\Http\Controllers\AttendanceController;
+use Modules\ERP\Http\Controllers\DebtHistoryController;
 use Modules\ERP\Http\Controllers\OrderItemController;
 use Modules\ERP\Http\Controllers\TransactionController;
 use Modules\ERP\Http\Controllers\TransactionPurposeController;
+use Modules\ERP\Http\Controllers\WalletController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,7 @@ Route::group(['prefix' => 'erp/v1', 'middleware' => 'auth:sanctum'], static func
 
     Route::group(['prefix' => 'auth'], static function () {
         Route::post('logout', [AuthController::class, 'logout']);
+        Route::get('get-info', [AuthController::class, 'me']);
     }); 
 
     Route::prefix('user')->group(function () {
@@ -70,7 +73,15 @@ Route::group(['prefix' => 'erp/v1', 'middleware' => 'auth:sanctum'], static func
     });
 
     Route::prefix('transactions')->group(function () {
+        Route::get('/', [TransactionController::class, 'index']);
         Route::post('/transaction', [TransactionController::class, 'transaction']);
-        Route::get('/alltransactions', [TransactionController::class, 'alltransactions']);
+    });
+
+    Route::prefix('wallet')->group(function () {
+        Route::get('/', [WalletController::class, 'index']);
+    });
+
+    Route::prefix('bebthistory')->group(function () {
+        Route::get('/', [DebtHistoryController::class, 'index']);
     });
 });
