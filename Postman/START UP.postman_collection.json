@@ -1,0 +1,2016 @@
+{
+	"info": {
+		"_postman_id": "a062ed13-3d21-45b1-95b3-983fb024e4e3",
+		"name": "START UP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25538272"
+	},
+	"item": [
+		{
+			"name": "Transaction",
+			"item": [
+				{
+					"name": "transaction for expense",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "transaction",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "payer_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "receiver_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "purpose_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "income",
+											"type": "text"
+										},
+										{
+											"key": "amount",
+											"value": "5600",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "value",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/erp/v1/transactions/transaction",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"erp",
+										"v1",
+										"transactions",
+										"transaction"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 06 Mar 2023 15:19:49 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 06 Mar 2023 15:19:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.3"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"amount\": \"5600\",\n        \"description\": \"value\",\n        \"payer_id\": 1,\n        \"payer_type\": \"Modules\\\\ERP\\\\Entities\\\\Order\",\n        \"receiver_id\": 1,\n        \"receiver_type\": \"App\\\\Models\\\\User\",\n        \"purpose_id\": 1,\n        \"purpose_type\": \"Modules\\\\ERP\\\\Entities\\\\TransactionPurpose\",\n        \"updated_at\": \"2023-03-06T15:19:49.000000Z\",\n        \"created_at\": \"2023-03-06T15:19:49.000000Z\",\n        \"id\": 2,\n        \"payer\": {\n            \"id\": 1,\n            \"user_id\": 1,\n            \"location\": \"gorkiy\",\n            \"amount\": 5,\n            \"created_at\": \"2023-03-03T14:14:50.000000Z\",\n            \"updated_at\": \"3 days ago\"\n        },\n        \"receiver\": {\n            \"id\": 1,\n            \"first_name\": \"Mirzoxid\",\n            \"last_name\": \"Adxamjanov\",\n            \"username\": \"joker\",\n            \"position\": \"user\",\n            \"status\": 1,\n            \"phone\": \"998997256657\",\n            \"birthday\": \"2001-03-22\",\n            \"gender\": 1,\n            \"created_at\": \"2023-03-03T05:13:29.000000Z\",\n            \"updated_at\": \"2023-03-03T05:13:29.000000Z\"\n        },\n        \"purpose\": {\n            \"id\": 1,\n            \"type\": \"income\",\n            \"title\": \"from the order\",\n            \"canBeChanged\": 0,\n            \"created_at\": \"2023-03-06T15:11:58.000000Z\",\n            \"updated_at\": \"2023-03-06T15:11:58.000000Z\"\n        }\n    },\n    \"message\": \"ok\"\n}"
+						}
+					]
+				},
+				{
+					"name": "transaction for transfer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/erp/v1/transactions/transaction",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"transactions",
+								"transaction"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "transaction for transfer",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "payer_id",
+											"value": "33",
+											"type": "text"
+										},
+										{
+											"key": "purpose_id",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "amount",
+											"value": "170000",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "buyurtmalardan olingan pullarni kuryerlar kassaga topshirishdi",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/erp/v1/transactions/transaction",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"erp",
+										"v1",
+										"transactions",
+										"transaction"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Mar 2023 04:29:16 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Mar 2023 04:29:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.3"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"amount\": \"170000\",\n        \"description\": \"buyurtmalardan olingan pullarni kuryerlar kassaga topshirishdi\",\n        \"payer_id\": 33,\n        \"payer_type\": \"App\\\\Models\\\\User\",\n        \"receiver_id\": 35,\n        \"receiver_type\": \"App\\\\Models\\\\User\",\n        \"purpose_id\": 5,\n        \"purpose_type\": \"Modules\\\\ERP\\\\Entities\\\\TransactionPurpose\",\n        \"updated_at\": \"2023-03-08T04:29:16.000000Z\",\n        \"created_at\": \"2023-03-08T04:29:16.000000Z\",\n        \"id\": 21,\n        \"payer\": {\n            \"id\": 33,\n            \"first_name\": \"Tolqin\",\n            \"last_name\": \"Saadullayev\",\n            \"username\": \"jodddccd2d2sdd3\",\n            \"position\": \"user\",\n            \"status\": \"active\",\n            \"phone\": \"998997256657\",\n            \"birthday\": \"2001-03-22\",\n            \"gender\": \"male\",\n            \"created_at\": \"2023-03-07T04:20:23.000000Z\",\n            \"updated_at\": \"2023-03-07T04:20:23.000000Z\"\n        },\n        \"receiver\": {\n            \"id\": 35,\n            \"first_name\": \"Mirzoxid\",\n            \"last_name\": \"Adxamjanov\",\n            \"username\": \"anotheruser\",\n            \"position\": \"user\",\n            \"status\": \"active\",\n            \"phone\": \"998997256657\",\n            \"birthday\": \"2001-03-22\",\n            \"gender\": \"male\",\n            \"created_at\": \"2023-03-07T05:34:52.000000Z\",\n            \"updated_at\": \"2023-03-07T07:41:00.000000Z\"\n        },\n        \"purpose\": {\n            \"id\": 5,\n            \"type\": \"transfer\",\n            \"title\": \"transfer money\",\n            \"canBeChanged\": 0,\n            \"created_at\": \"2023-03-06T15:11:58.000000Z\",\n            \"updated_at\": \"2023-03-06T15:11:58.000000Z\"\n        }\n    },\n    \"message\": \"ok\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Transfer for income",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "payer_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "purpose_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "1500",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "buyurtma yetkazildi va to'lovi olindi",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/erp/v1/transactions/transaction",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"transactions",
+								"transaction"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Transfer for income",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "payer_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "purpose_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "amount",
+											"value": "1500",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "buyurtma yetkazildi va to'lovi olindi",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/erp/v1/transactions/transaction",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"erp",
+										"v1",
+										"transactions",
+										"transaction"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Mar 2023 04:27:31 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Mar 2023 04:27:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.3"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"amount\": \"1500\",\n        \"description\": \"buyurtma yetkazildi va to'lovi olindi\",\n        \"payer_id\": 1,\n        \"payer_type\": \"Modules\\\\ERP\\\\Entities\\\\Order\",\n        \"receiver_id\": 35,\n        \"receiver_type\": \"App\\\\Models\\\\User\",\n        \"purpose_id\": 1,\n        \"purpose_type\": \"Modules\\\\ERP\\\\Entities\\\\TransactionPurpose\",\n        \"updated_at\": \"2023-03-08T04:27:30.000000Z\",\n        \"created_at\": \"2023-03-08T04:27:30.000000Z\",\n        \"id\": 20,\n        \"payer\": {\n            \"id\": 1,\n            \"user_id\": 1,\n            \"location\": \"gorkiy\",\n            \"amount\": 5,\n            \"created_at\": \"2023-03-07T09:27:31.000000Z\",\n            \"updated_at\": \"19 hours ago\"\n        },\n        \"receiver\": {\n            \"id\": 35,\n            \"first_name\": \"Mirzoxid\",\n            \"last_name\": \"Adxamjanov\",\n            \"username\": \"anotheruser\",\n            \"position\": \"user\",\n            \"status\": \"active\",\n            \"phone\": \"998997256657\",\n            \"birthday\": \"2001-03-22\",\n            \"gender\": \"male\",\n            \"created_at\": \"2023-03-07T05:34:52.000000Z\",\n            \"updated_at\": \"2023-03-07T07:41:00.000000Z\"\n        },\n        \"purpose\": {\n            \"id\": 1,\n            \"type\": \"income\",\n            \"title\": \"from the order\",\n            \"canBeChanged\": 0,\n            \"created_at\": \"2023-03-06T15:11:58.000000Z\",\n            \"updated_at\": \"2023-03-06T15:11:58.000000Z\"\n        }\n    },\n    \"message\": \"ok\"\n}"
+						}
+					]
+				},
+				{
+					"name": "expenses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/transactions/alltransactions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"transactions",
+								"alltransactions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "transactions list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/erp/v1/transactions",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"erp",
+										"v1",
+										"transactions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Mar 2023 08:03:17 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Mar 2023 08:03:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.3"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 21,\n            \"amount\": 170000,\n            \"description\": \"buyurtmalardan olingan pullarni kuryerlar kassaga topshirishdi\",\n            \"receiver\": \"anotheruser\",\n            \"payer\": \"jodddccd2d2sdd3\",\n            \"purpose_title\": \"transfer money\",\n            \"purpose_type\": \"transfer\",\n            \"created_at\": \"3 hours ago\"\n        },\n        {\n            \"id\": 20,\n            \"amount\": 1500,\n            \"description\": \"buyurtma yetkazildi va to'lovi olindi\",\n            \"receiver\": \"anotheruser\",\n            \"payer\": \"gorkiy\",\n            \"purpose_title\": \"from the order\",\n            \"purpose_type\": \"income\",\n            \"created_at\": \"3 hours ago\"\n        },\n        {\n            \"id\": 19,\n            \"amount\": 1500,\n            \"description\": \"buyurtma yetkazildi va to'lovi olindi\",\n            \"receiver\": \"anotheruser\",\n            \"payer\": \"gorkiy\",\n            \"purpose_title\": \"from the order\",\n            \"purpose_type\": \"income\",\n            \"created_at\": \"3 hours ago\"\n        },\n        {\n            \"id\": 18,\n            \"amount\": 170000,\n            \"description\": \"1500\",\n            \"receiver\": \"anotheruser\",\n            \"payer\": \"jodddccd2d2sdd3\",\n            \"purpose_title\": \"transfer money\",\n            \"purpose_type\": \"transfer\",\n            \"created_at\": \"3 hours ago\"\n        },\n        {\n            \"id\": 17,\n            \"amount\": 17000,\n            \"description\": \"1500\",\n            \"receiver\": \"anotheruser\",\n            \"payer\": \"jodddccd2d2sdd3\",\n            \"purpose_title\": \"transfer money\",\n            \"purpose_type\": \"transfer\",\n            \"created_at\": \"3 hours ago\"\n        },\n        {\n            \"id\": 16,\n            \"amount\": 2800,\n            \"description\": \"1500\",\n            \"receiver\": \"anotheruser\",\n            \"payer\": \"jodddccd2d2sdd3\",\n            \"purpose_title\": \"transfer money\",\n            \"purpose_type\": \"transfer\",\n            \"created_at\": \"3 hours ago\"\n        },\n        {\n            \"id\": 15,\n            \"amount\": 2800,\n            \"description\": \"1500\",\n            \"receiver\": \"anotheruser\",\n            \"payer\": \"jodddccd2d2sdd3\",\n            \"purpose_title\": \"transfer money\",\n            \"purpose_type\": \"transfer\",\n            \"created_at\": \"3 hours ago\"\n        },\n        {\n            \"id\": 14,\n            \"amount\": 2800,\n            \"description\": \"1500\",\n            \"receiver\": \"anotheruser\",\n            \"payer\": \"jodddccd2d2sdd3\",\n            \"purpose_title\": \"transfer money\",\n            \"purpose_type\": \"transfer\",\n            \"created_at\": \"3 hours ago\"\n        },\n        {\n            \"id\": 13,\n            \"amount\": 2800,\n            \"description\": \"1500\",\n            \"receiver\": \"anotheruser\",\n            \"payer\": \"jodddccd2d2sdd3\",\n            \"purpose_title\": \"transfer money\",\n            \"purpose_type\": \"transfer\",\n            \"created_at\": \"3 hours ago\"\n        },\n        {\n            \"id\": 12,\n            \"amount\": 2800,\n            \"description\": \"1500\",\n            \"receiver\": \"anotheruser\",\n            \"payer\": \"jodddccd2d2sdd3\",\n            \"purpose_title\": \"transfer money\",\n            \"purpose_type\": \"transfer\",\n            \"created_at\": \"3 hours ago\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://127.0.0.1:8000/api/erp/v1/transactions?page=1\",\n        \"last\": \"http://127.0.0.1:8000/api/erp/v1/transactions?page=3\",\n        \"prev\": null,\n        \"next\": \"http://127.0.0.1:8000/api/erp/v1/transactions?page=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 3,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/erp/v1/transactions?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/erp/v1/transactions?page=2\",\n                \"label\": \"2\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/erp/v1/transactions?page=3\",\n                \"label\": \"3\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/erp/v1/transactions?page=2\",\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://127.0.0.1:8000/api/erp/v1/transactions\",\n        \"per_page\": 10,\n        \"to\": 10,\n        \"total\": 21\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "daily statistics",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "daily statistics",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/erp/v1/transactions/statistics",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"erp",
+										"v1",
+										"transactions",
+										"statistics"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Mar 2023 06:32:36 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Mar 2023 06:32:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.3"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"type\": \"income\",\n        \"title\": \"from the order\",\n        \"total_amount\": \"11200\",\n        \"date\": \"2023-03-06\"\n    },\n    {\n        \"type\": \"expense\",\n        \"title\": \"lending\",\n        \"total_amount\": \"16800\",\n        \"date\": \"2023-03-07\"\n    },\n    {\n        \"type\": \"transfer\",\n        \"title\": \"transfer money\",\n        \"total_amount\": \"387800\",\n        \"date\": \"2023-03-08\"\n    },\n    {\n        \"type\": \"income\",\n        \"title\": \"from the order\",\n        \"total_amount\": \"3000\",\n        \"date\": \"2023-03-08\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "monthly statistics",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "monthly statistics",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/erp/v1/transactions/statistics",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"erp",
+										"v1",
+										"transactions",
+										"statistics"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Mar 2023 06:39:37 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Mar 2023 06:39:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.3"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"type\": \"income\",\n        \"title\": \"from the order\",\n        \"total_amount\": \"14200\",\n        \"monthly\": \"2023-03\"\n    },\n    {\n        \"type\": \"expense\",\n        \"title\": \"lending\",\n        \"total_amount\": \"16800\",\n        \"monthly\": \"2023-03\"\n    },\n    {\n        \"type\": \"transfer\",\n        \"title\": \"transfer money\",\n        \"total_amount\": \"387800\",\n        \"monthly\": \"2023-03\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "yearly statistics",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "yearly statistics",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/erp/v1/transactions/statistics",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"erp",
+										"v1",
+										"transactions",
+										"statistics"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Mar 2023 06:42:45 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Mar 2023 06:42:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.3"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"type\": \"income\",\n        \"title\": \"from the order\",\n        \"total_amount\": \"14200\",\n        \"year\": 2023\n    },\n    {\n        \"type\": \"expense\",\n        \"title\": \"lending\",\n        \"total_amount\": \"16800\",\n        \"year\": 2023\n    },\n    {\n        \"type\": \"transfer\",\n        \"title\": \"transfer money\",\n        \"total_amount\": \"387800\",\n        \"year\": 2023\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/erp/v1/order",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"erp",
+								"v1",
+								"order"
+							]
+						},
+						"description": "bu barcha buyurtmalarni ko'rsatadi"
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "location",
+									"value": "gorkiy",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/erp/v1/order",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"erp",
+								"v1",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "location",
+									"value": "maksim gorkiy",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/erp/v1/order/7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"order",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/erp/v1/order/7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"order",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order Item",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/erp/v1/orderitem",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"erp",
+								"v1",
+								"orderitem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/erp/v1/orderitem",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"erp",
+								"v1",
+								"orderitem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "status",
+									"value": "prepared",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/erp/v1/orderitem/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"orderitem",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/erp/v1/orderitem/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"orderitem",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Debt History",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/debthistory",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"debthistory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaction Purpose",
+			"item": [
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\" : \"expense\",\r\n    \"title\" : \"kommunal\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/payment_purpose",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"payment_purpose"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "income",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "index",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/erp/v1/transaction_purpose?type=income&id=desc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"erp",
+										"v1",
+										"transaction_purpose"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "income"
+										},
+										{
+											"key": "id",
+											"value": "desc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Mar 2023 04:15:28 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Mar 2023 04:15:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.3"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 2,\n                \"title\": \"debt collection\",\n                \"type\": \"income\",\n                \"updated_at\": \"2023-03-06T15:11:58.000000Z\"\n            },\n            {\n                \"id\": 1,\n                \"title\": \"from the order\",\n                \"type\": \"income\",\n                \"updated_at\": \"2023-03-06T15:11:58.000000Z\"\n            }\n        ],\n        \"first_page_url\": \"http://127.0.0.1:8000/api/erp/v1/transaction_purpose?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://127.0.0.1:8000/api/erp/v1/transaction_purpose?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/erp/v1/transaction_purpose?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://127.0.0.1:8000/api/erp/v1/transaction_purpose\",\n        \"per_page\": 20,\n        \"prev_page_url\": null,\n        \"to\": 2,\n        \"total\": 2\n    },\n    \"message\": \"ok\"\n}"
+						}
+					]
+				},
+				{
+					"name": "expense",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "expense",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/erp/v1/transaction_purpose?type=expense&id=desc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"erp",
+										"v1",
+										"transaction_purpose"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "expense"
+										},
+										{
+											"key": "id",
+											"value": "desc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 07 Mar 2023 10:35:00 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 07 Mar 2023 10:35:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.3"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 4,\n                \"title\": \"salary distribution\",\n                \"type\": \"expense\",\n                \"updated_at\": \"2023-03-06T15:11:58.000000Z\"\n            },\n            {\n                \"id\": 3,\n                \"title\": \"lending\",\n                \"type\": \"expense\",\n                \"updated_at\": \"2023-03-06T15:11:58.000000Z\"\n            }\n        ],\n        \"first_page_url\": \"http://127.0.0.1:8000/api/erp/v1/transaction_purpose?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://127.0.0.1:8000/api/erp/v1/transaction_purpose?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/erp/v1/transaction_purpose?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://127.0.0.1:8000/api/erp/v1/transaction_purpose\",\n        \"per_page\": 20,\n        \"prev_page_url\": null,\n        \"to\": 2,\n        \"total\": 2\n    },\n    \"message\": \"ok\"\n}"
+						}
+					]
+				},
+				{
+					"name": "transfer",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "transfer",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/erp/v1/transaction_purpose?type=transfer&id=desc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"erp",
+										"v1",
+										"transaction_purpose"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "transfer"
+										},
+										{
+											"key": "id",
+											"value": "desc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 07 Mar 2023 10:35:28 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 07 Mar 2023 10:35:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.3"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 5,\n                \"title\": \"transfer money\",\n                \"type\": \"transfer\",\n                \"updated_at\": \"2023-03-06T15:11:58.000000Z\"\n            }\n        ],\n        \"first_page_url\": \"http://127.0.0.1:8000/api/erp/v1/transaction_purpose?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://127.0.0.1:8000/api/erp/v1/transaction_purpose?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/erp/v1/transaction_purpose?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://127.0.0.1:8000/api/erp/v1/transaction_purpose\",\n        \"per_page\": 20,\n        \"prev_page_url\": null,\n        \"to\": 1,\n        \"total\": 1\n    },\n    \"message\": \"ok\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Mirzoxid\",\r\n    \"last_name\": \"Adxamjanov\",\r\n    \"username\": \"username\",\r\n    \"password\": \"password\",\r\n    \"phone\": 998997256657,\r\n    \"birthday\": \"2001-03-22\",\r\n    \"position\": \"user\",\r\n    \"gender\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/erp/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"erp",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\": \"Mirzoxid\",\r\n    \"last_name\": \"Adxamjanov\",\r\n    \"username\": \"username\",\r\n    \"password\": \"password\",\r\n    \"phone\": 998997256657,\r\n    \"birthday\": \"2001-03-22\",\r\n    \"position\": \"user\",\r\n    \"gender\" : 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/erp/v1/auth/register",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"erp",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 07 Mar 2023 04:21:01 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 07 Mar 2023 04:21:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.3"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": {\n        \"first_name\": \"Mirzoxid\",\n        \"last_name\": \"Adxamjanov\",\n        \"username\": \"username\",\n        \"position\": \"user\",\n        \"phone\": 998997256657,\n        \"birthday\": \"2001-03-22\",\n        \"gender\": 1,\n        \"updated_at\": \"2023-03-07T04:21:01.000000Z\",\n        \"created_at\": \"2023-03-07T04:21:01.000000Z\",\n        \"id\": 34\n    },\n    \"token\": \"2|15NSDfFPaEEPjUxmRVZ2YidXNB4aHLakEFs5tXh2\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/erp/v1/user/20",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"erp",
+								"v1",
+								"user",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "anotheruser",
+									"type": "text"
+								},
+								{
+									"key": "position",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/erp/v1/user/profile/35",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"user",
+								"profile",
+								"35"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "profile update",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "anotheruser",
+											"type": "text"
+										},
+										{
+											"key": "position",
+											"value": "user",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/erp/v1/user/profile/35",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"erp",
+										"v1",
+										"user",
+										"profile",
+										"35"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 07 Mar 2023 07:41:00 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 07 Mar 2023 07:41:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.3"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 35,\n        \"first_name\": \"Mirzoxid\",\n        \"last_name\": \"Adxamjanov\",\n        \"username\": \"anotheruser\",\n        \"position\": \"user\",\n        \"status\": 1,\n        \"phone\": \"998997256657\",\n        \"birthday\": \"2001-03-22\",\n        \"gender\": 1,\n        \"created_at\": \"2023-03-07T05:34:52.000000Z\",\n        \"updated_at\": \"2023-03-07T07:41:00.000000Z\"\n    },\n    \"message\": \"ok\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Wallet",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/erp/v1/bebthistory",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"bebthistory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "joker",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "joker",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/erp/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"erp",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/erp/v1/auth/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/erp/v1/user/get-info",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"erp",
+								"v1",
+								"user",
+								"get-info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/roles/role",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"roles",
+								"role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "give permission",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"permissionIds\": [1,2,3,4,5,6]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/roles/getPermission",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"roles",
+								"getPermission"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update role's permission",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"permissionIds\" : [1,2,3,4,5,6,7,8,9]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/roles/updatePermission/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"roles",
+								"updatePermission",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/roles/delete/3",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"roles",
+								"delete",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Attendance",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/erp/v1/attendance",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"erp",
+								"v1",
+								"attendance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/erp/v1/attendance/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"erp",
+								"v1",
+								"attendance",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/erp/v1/attendance/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"erp",
+								"v1",
+								"attendance",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/erp/v1/attendance/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"erp",
+								"v1",
+								"attendance",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "permissions",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
