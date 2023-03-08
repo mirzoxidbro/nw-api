@@ -42,15 +42,6 @@ class UserController extends Controller
         ]);
     }
 
-    public function show(int $id)
-    {
-        $user = $this->service->show($id);
-        if ($user)
-            return response()->successJson($user);
-        else
-            return response()->errorJson('Object not found', 404);
-    }
-
     public function update(UpdateRequest $request, int $id)
     {
         $params = $request->validated();

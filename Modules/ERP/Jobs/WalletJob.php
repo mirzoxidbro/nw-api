@@ -33,7 +33,6 @@ class WalletJob implements ShouldQueue
     {
         $purpose = TransactionPurpose::where('id', $this->model->purpose_id)->first();
         $amount = $this->model->amount;
-
         if ($purpose->type == 'transfer') {
             Wallet::where('user_id', $this->model->receiver_id)->increment('amount', $amount);
             Wallet::where('user_id', $this->model->payer_id)->decrement('amount', $amount);

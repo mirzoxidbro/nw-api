@@ -19,11 +19,6 @@ use Modules\Core\Http\Controllers\UserController;
 
 
 
-// Route::group(['middleware' => ['auth:sanctum']], function(){
-//     Route::apiResource('users', UserController::class);
-//     Route::post('logout', [AuthController::class, 'logout']);
-//     Route::post('assignRole/{userId}/{roleId}', [AuthController::class, 'assignRole']);
-
     Route::prefix('roles')->group(function(){
         Route::get('getRoles', [RoleController::class, 'getRoles']);
         Route::post('role', [RoleController::class, 'store']);
@@ -37,4 +32,3 @@ use Modules\Core\Http\Controllers\UserController;
     Route::prefix('permissions')->group(function(){
         Route::get('/permissions', [PermissionController::class, 'getPermissions']);
     });
-// });

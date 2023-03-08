@@ -35,4 +35,19 @@ class TransactionController extends Controller
         else
             return response()->errorJson('Ошибка при создании');
     }
+
+    public function dailystatistics()
+    {
+        return $this->service->dailystatistics();
+    }
+
+    public function monthlystatistics()
+    {
+        return $this->service->monthtlyStatistics();
+    }
+
+    public function yearlystatistics()
+    {
+        return $this->service->yearlyStatistics();
+    }
 }

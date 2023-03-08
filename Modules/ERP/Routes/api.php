@@ -74,6 +74,9 @@ Route::group(['prefix' => 'erp/v1', 'middleware' => 'auth:sanctum'], static func
 
     Route::prefix('transactions')->group(function () {
         Route::get('/', [TransactionController::class, 'index']);
+        Route::get('/dailystatistics', [TransactionController::class, 'dailystatistics']);
+        Route::get('/monthlystatistics', [TransactionController::class, 'monthlystatistics']);
+        Route::get('/yearlystatistics', [TransactionController::class, 'yearlystatistics']);
         Route::post('/transaction', [TransactionController::class, 'transaction']);
     });
 

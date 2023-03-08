@@ -15,7 +15,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'date' => 'required|date',
-            'users' => 'required|array'
+            'users' => 'required|array|exists:users,id'
         ];
     }
 
