@@ -33,6 +33,7 @@ class UserController extends Controller
     public function store(StoreRequest $request)
     {
         $params = $request->validated();
+        dd($params);
         $params['password'] = Hash::make($request->password);
         $model = $this->service->create($params);
         $token = $model->createToken('token')->plainTextToken;

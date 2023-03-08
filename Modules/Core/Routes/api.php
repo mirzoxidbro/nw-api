@@ -20,15 +20,15 @@ use Modules\Core\Http\Controllers\UserController;
 
 
     Route::prefix('roles')->group(function(){
-        Route::get('getRoles', [RoleController::class, 'getRoles']);
-        Route::post('role', [RoleController::class, 'store']);
-        Route::post('getPermission/{roleId}', [RoleController::class, 'roleGetPermission']);
-        Route::post('updatePermission/{roleId}', [RoleController::class, 'roleUpdatePermission']);
-        Route::post('delete/{roleId}', [RoleController::class, 'destroy']);
+        Route::get('getRoles', [RoleController::class, 'getRoles'])->middleware('can:get roles');
+        Route::post('role', [RoleController::class, 'store'])->middleware('can:store new role');
+        Route::post('getPermission/{roleId}', [RoleController::class, 'roleGetPermission'])->middleware('can:role get permission');
+        Route::post('updatePermission/{roleId}', [RoleController::class, 'roleUpdatePermission'])->middleware('can:role update permission');
+        Route::post('delete/{roleId}', [RoleController::class, 'destroy'])->middleware('can:delete role');
     });
 
 
 
     Route::prefix('permissions')->group(function(){
-        Route::get('/permissions', [PermissionController::class, 'getPermissions']);
+        Route::get('/permissions', [PermissionController::class, 'getPermissions'])->middleware('can:get permissions');
     });

@@ -1,3 +1,18 @@
+## Authors
+
+-   [Mirzoxid Adxamjanov](https://github.com/mirzoxidbro)
+
+## API Reference
+
+#### Login for superadmin:
+
+| Key        | Type     | Value      |
+| :--------- | :------- | :--------- |
+| `username` | `string` | superadmin |
+| `password` | `string` | verysecret |
+
+####
+
 ## Proyektni o'rnatish
 
 ```
@@ -24,6 +39,6 @@ php artisan permission:create
 php artisan give:permission
 ```
 
-``
+```
 php artisan schedule:work
-``
+```

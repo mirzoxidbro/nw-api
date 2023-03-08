@@ -2,8 +2,11 @@
 
 namespace App\Console\Commands;
 
+use App\Models\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class PermissionCreate extends Command
 {
@@ -36,6 +39,11 @@ class PermissionCreate extends Command
         Permission::create(['name' => 'delete role']);
         Permission::create(['name' => 'get permissions']);
 
+        /**User permission */
+        Permission::create(['name' => 'get users list']);
+        Permission::create(['name' => 'user update']);
+        Permission::create(['name' => 'delete user']);
+
         /**Attendance permission */
         Permission::create(['name' => 'get attendance']);
         Permission::create(['name' => 'create attendance']);
@@ -48,6 +56,10 @@ class PermissionCreate extends Command
 
         /**Wallet permisison */
         Permission::create(['name' => 'get wallet']); //kuryerlarni xamyonidagi summani ko'rish
+
+        /**Daily work volume permisison */
+        Permission::create(['name' => 'get daily work volume']); //kuryerlarni xamyonidagi summani ko'rish
+
 
         /**Order permission */
         Permission::create(['name' => 'get orders']);
@@ -66,13 +78,14 @@ class PermissionCreate extends Command
         /**Transaction permission */
         Permission::create(['name' => 'get transactions']);
         Permission::create(['name' => 'create transaction']);
+        Permission::create(['name' => 'get daily statistics']);
+        Permission::create(['name' => 'get monthly statistics']);
+        Permission::create(['name' => 'get yearly statistics']);
 
         /**Transaction purpose permission */
         Permission::create(['name' => 'get transaction purposes']);
         Permission::create(['name' => 'create transaction purposes']);
-        Permission::create(['name' => 'show transaction purposes']);
         Permission::create(['name' => 'update transaction purposes']);
-        Permission::create(['name' => 'delete transaction purposes']);
-        
+        Permission::create(['name' => 'delete transaction purposes']);     
     }
 }
