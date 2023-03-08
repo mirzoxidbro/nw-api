@@ -32,7 +32,7 @@ php artisan db:seed
 ```
 
 ```
-php artisan permission:create
+php artisan create:permission
 ```
 
 ```
