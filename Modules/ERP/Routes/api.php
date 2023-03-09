@@ -38,6 +38,7 @@ Route::group(['prefix' => 'erp/v1', 'middleware' => 'auth:sanctum'], static func
         Route::post('/{id}', [UserController::class, 'show']);
         Route::post('/{id}', [UserController::class, 'update'])->middleware('can:user update');
         Route::post('/profile/{id}', [UserController::class, 'profileUpdate']);
+        Route::post('/giverole', [UserController::class, 'giveRole']);
         Route::delete('/{id}', [UserController::class, 'destroy'])->middleware('can:delete user');
     });
 

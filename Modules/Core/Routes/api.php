@@ -18,7 +18,7 @@ use Modules\Core\Http\Controllers\UserController;
 */
 
 
-
+Route::group(['middleware' => 'auth:sanctum'], static function () {
     Route::prefix('roles')->group(function(){
         Route::get('getRoles', [RoleController::class, 'getRoles'])->middleware('can:get roles');
         Route::post('role', [RoleController::class, 'store'])->middleware('can:store new role');
@@ -32,3 +32,4 @@ use Modules\Core\Http\Controllers\UserController;
     Route::prefix('permissions')->group(function(){
         Route::get('/permissions', [PermissionController::class, 'getPermissions'])->middleware('can:get permissions');
     });
+});

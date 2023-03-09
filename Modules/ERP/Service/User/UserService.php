@@ -5,6 +5,7 @@ namespace Modules\ERP\Service\User;
 use Modules\Core\Service\BaseService;
 use Modules\ERP\Events\UserCreated;
 use Modules\ERP\Repository\UserRepository;
+use Spatie\Permission\Models\Role;
 
 class UserService extends BaseService
 {
@@ -28,5 +29,12 @@ class UserService extends BaseService
         $user = $this->repo->store($params);
         event(new UserCreated($user->id));
         return $user;
+    }
+
+    public function giveRoleToUser(array $params)
+    {
+        $user = $this->show($params['user_id']);
+        $role = Role::findById($params['role_id']);
+        return $user->assignRole($role);
     }
 }

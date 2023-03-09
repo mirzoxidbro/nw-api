@@ -4,6 +4,7 @@ namespace Modules\ERP\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Hash;
+use Modules\ERP\Http\Requests\User\GetRoleToUserRequest;
 use Modules\ERP\Service\User\UserService;
 use Modules\ERP\Http\Requests\User\IndexRequest;
 use Modules\ERP\Http\Requests\User\StoreRequest;
@@ -33,7 +34,6 @@ class UserController extends Controller
     public function store(StoreRequest $request)
     {
         $params = $request->validated();
-        dd($params);
         $params['password'] = Hash::make($request->password);
         $model = $this->service->create($params);
         $token = $model->createToken('token')->plainTextToken;
@@ -68,6 +68,18 @@ class UserController extends Controller
         $model = $this->service->delete($id);
         if ($model) {
             return response()->successJson('Successfully deleted');
+        } else {
+            return response()->errorJson('Object not found', 404);
+        }
+    }
+
+    public function giveRole(GetRoleToUserRequest $request)
+    {
+        $params = $request->validated();
+        $model = $this->service->giveRoleToUser($params);
+    
+        if ($model) {
+            return response()->successJson('Successfully');
         } else {
             return response()->errorJson('Object not found', 404);
         }
