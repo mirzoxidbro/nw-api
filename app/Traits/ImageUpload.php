@@ -12,7 +12,7 @@ trait ImageUpload
         $ext = strtolower($query->getClientOriginalExtension()); // You can use also getClientOriginalName()
         $image_full_name = $image_name.'.'.$ext;
         $image_url = $image_full_name;
-        $success = $query->move(public_path('assets/image'),$image_full_name);
+        $success = $query->move(public_path('assets/image'),$image_full_name); 
 
         return $image_url; // Just return image
     }
