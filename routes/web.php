@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AskController;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,5 @@ Route::get('/', function () {
     $visits = Redis::decr('visits');
     return $visits;
 });
+
+Route::get("/ask", AskController::class);
