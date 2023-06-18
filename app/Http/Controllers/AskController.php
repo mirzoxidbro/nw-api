@@ -5,42 +5,32 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
-use OpenAI\Laravel\Facades\OpenAI;
-
+use Orhanerday\OpenAi\OpenAi;
 class AskController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $question = $request->query('question');
-        return response()->stream(function () use ($question) {
-            $stream = OpenAI::completions()->createStreamed([
-                'model' => 'text-davinci-003',
-                'prompt' => $question,
-                'max_tokens' => 1024,
-            ]);
-
-            foreach ($stream as $response) {
-                $text = $response->choices[0]->text;
-                if (connection_aborted()) {
-                    break;
-                }
-
-                echo "event: update\n";
-                echo 'data: ' . $text;
-                echo "\n\n";
-                ob_flush();
-                flush();
-            }
-
+        $open_ai = new OpenAi(env('OPENAI_API_KEY'));
+        $opts = [
+            'prompt' => "write me job description for 'Laravel programmist' in russian",
+            'temperature' => 0.9,
+            "max_tokens" => 150,
+            "frequency_penalty" => 0,
+            "presence_penalty" => 0.6,
+            "stream" => true,
+         ];
+         
+         header('Content-type: text/event-stream');
+         header('Cache-Control: no-cache');
+         
+         $open_ai->completion($opts, function ($curl_info, $data) {
             echo "event: update\n";
-            echo 'data: <END_STREAMING_SSE>';
-            echo "\n\n";
+            echo $data. "<br><br>";
+            echo PHP_EOL;
             ob_flush();
             flush();
-        }, 200, [
-            'Cache-Control' => 'no-cache',
-            'X-Accel-Buffering' => 'no',
-            'Content-Type' => 'text/event-stream',
-        ]);
+            return strlen($data);
+         });
+        
     }
 }

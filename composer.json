@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.7",
         "nwidart/laravel-modules": "^9.0",
         "openai-php/laravel": "^0.5.2",
+        "orhanerday/open-ai": "^4.7",
         "predis/predis": "^2.1",
         "spatie/laravel-permission": "^5.7"
     },
